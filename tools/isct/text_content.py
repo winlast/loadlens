@@ -65,13 +65,14 @@ def write_body(doc, N, FIG: Path):
         "not, and it varies within one endpoint: in the public Azure Functions trace [9] the 99th "
         "percentile of execution time exceeds the median at least tenfold for "
         f"{f1(N['azs']['доля_функций_с_разбросом_от_10_раз_%'])}% of "
-        f"{N['az']['функций']:,}".replace(",", " ") + " functions.")
+        # thin space as the thousands separator; applied to the number only
+        + f"{N['az']['функций']:,}".replace(",", "\u2009") + " functions.")
     doc.p(
         "The missing ingredient, an estimate of the cost of a request before it runs, is what learned "
         "components of computer systems are meant to provide [10, 11]. The theory of algorithms with "
         "predictions studies how much such estimates help and how their errors hurt [12, 13], and "
         "recent schedulers for large language model inference show that learning only the relative "
-        "order of output lengths suffices to approximate shortest-job-first [14, 15]. These works "
+        "order of output lengths suffices to approximate shortest-job-first [14]. These works "
         "judge a predictor by a single figure of merit. A router, however, uses the estimate twice: "
         "to decide whether a request may enter the event loop at all, and to weigh the queues of the "
         "engines when choosing among admissible ones. Whether the two uses place the same demands on "
@@ -108,7 +109,7 @@ def write_body(doc, N, FIG: Path):
         "arriving at a random moment waits for the rest of the current computation and for all "
         "computations queued before it. For Poisson arrivals at rate $\\lambda$ and blocking time $B$ "
         "this is the M/G/1 queue, whose mean waiting time is given by the Pollaczek–Khinchine "
-        "formula [16]:")
+        "formula [15]:")
     doc.eq(r"W_{A}=\frac{\lambda \mathrm{E}[B^{2}]}{2(1-\rho)},\quad \rho =\lambda \mathrm{E}[B].")
     doc.p(
         "The numerator carries the main consequence. At equal utilization $\\rho$, rare long "
@@ -120,7 +121,7 @@ def write_body(doc, N, FIG: Path):
         "responds in")
     doc.eq(r"T_{S}(s)=\frac{s}{1-\rho},")
     doc.p(
-        "independently of how the other jobs are distributed [16, 17]. Computation that holds the "
+        "independently of how the other jobs are distributed [15, 16]. Computation that holds the "
         "lock is another matter: the lock changes hands only once per switch interval (5 ms by "
         "default), and a light request that releases it at every system call may wait an interval "
         "per call. Threads thus protect light requests from computation that releases the lock and "
@@ -170,7 +171,7 @@ def write_body(doc, N, FIG: Path):
         "rule $\\hat{b}=cp$ is what an engineer writes knowing that $p$ is a limit or a size; only "
         "$c$ is fitted. The power law $\\hat{b}=ap^{\\beta}$ is fitted per route and engine by least "
         "squares in logarithmic coordinates. The perceptron has two hidden layers of 48 and 24 units "
-        "and is trained in PyTorch [18] on the logarithm of the target. The true exponents of the "
+        "and is trained in PyTorch [17] on the logarithm of the target. The true exponents of the "
         "workload, 1 for database selections and 2 for image processing and period aggregation, are "
         "not disclosed to any estimator.")
     doc.h2("Testbed and Experiments")
@@ -181,7 +182,7 @@ def write_body(doc, N, FIG: Path):
         "reads and outbound calls. The parameter of each request is drawn from a log-uniform "
         "distribution skewed towards small values, and it is the parameter, not the route, that sets "
         "the amount of work. Code and measurement data are available in the project repository "
-        "[19]. Four experiments were performed.")
+        "[18]. Four experiments were performed.")
     doc.p(
         "A Poisson stream of calibrated computations is sent directly to one "
         "engine at utilization $\\rho \\in \\{0.2,0.4,0.6\\}$, with an independent Poisson stream of "
@@ -418,8 +419,6 @@ REFERENCES = [
     "pp 14:1–14:18. doi:10.4230/LIPIcs.ITCS.2020.14",
     "Fu Y, Zhu S, Su R, Qiao A, Stoica I, Zhang H (2024) Efficient LLM scheduling by learning to "
     "rank. arXiv. doi:10.48550/arXiv.2408.15792",
-    "Qiu H, Mao W, Patke A et al (2024) Efficient interactive LLM serving with proxy model-based "
-    "sequence length prediction. arXiv. doi:10.48550/arXiv.2404.08509",
     "Harchol-Balter M (2013) Performance modeling and design of computer systems: queueing "
     "theory in action. Cambridge University Press, Cambridge. doi:10.1017/CBO9781139226424",
     "Wierman A, Harchol-Balter M (2003) Classifying scheduling policies with respect to "

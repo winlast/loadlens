@@ -319,6 +319,18 @@ class Doc:
             h = h.replace("F. Author and S. Author", escape(running_authors))
             h = h.replace("Contribution Title (shortened if too long)", escape(running_title))
             hp.write_text(h, encoding="utf-8")
+        # Word downsamples pictures to 220 ppi on save unless told otherwise; the
+        # requirements ask for line art of at least 800 dpi.
+        sp = work / "word/settings.xml"
+        st = sp.read_text(encoding="utf-8")
+        if "doNotAutoCompressPictures" not in st:
+            tag = "<w:doNotAutoCompressPictures/>"
+            later = ("forceUpgrade", "captions", "readModeInkLockDown", "smartTagType",
+                     "schemaLibrary", "shapeDefaults", "doNotEmbedSmartTags",
+                     "decimalSymbol", "listSeparator")
+            pos = [st.find(f"<w:{t}") for t in later if f"<w:{t}" in st]
+            at = min(pos) if pos else st.rfind("</w:settings>")
+            sp.write_text(st[:at] + tag + st[at:], encoding="utf-8")
         # core properties
         cp = work / "docProps/core.xml"
         if cp.exists():
