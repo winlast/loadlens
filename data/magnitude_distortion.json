@@ -1,0 +1,79 @@
+{
+  "source": "power",
+  "budget_ms": 30,
+  "concurrency": 32,
+  "requests": 600,
+  "repeats": 5,
+  "points": {
+    "0.5": {
+      "light_over_budget_pct": 9.8,
+      "rps": 36.28,
+      "avg": 621.2,
+      "median": 98.6,
+      "rps_std": 6.81,
+      "p95": 3193.0,
+      "p99": 8074.3,
+      "light_p95": 576.8,
+      "light_p99": 1377.3,
+      "light_median": 21.6,
+      "slo": 24.2,
+      "n_light": 1061
+    },
+    "0.75": {
+      "light_over_budget_pct": 6.8,
+      "rps": 35.14,
+      "avg": 658.7,
+      "median": 96.4,
+      "rps_std": 6.91,
+      "p95": 3199.8,
+      "p99": 9017.4,
+      "light_p95": 257.0,
+      "light_p99": 1094.1,
+      "light_median": 22.7,
+      "slo": 24.5,
+      "n_light": 1061
+    },
+    "1.0": {
+      "light_over_budget_pct": 7.9,
+      "rps": 34.64,
+      "avg": 616.2,
+      "median": 89.3,
+      "rps_std": 4.77,
+      "p95": 3311.5,
+      "p99": 8057.0,
+      "light_p95": 316.5,
+      "light_p99": 1033.2,
+      "light_median": 24.6,
+      "slo": 21.1,
+      "n_light": 1061
+    },
+    "1.5": {
+      "light_over_budget_pct": 5.0,
+      "rps": 33.65,
+      "avg": 619.3,
+      "median": 75.5,
+      "rps_std": 4.0,
+      "p95": 3510.3,
+      "p99": 8590.1,
+      "light_p95": 198.9,
+      "light_p99": 829.1,
+      "light_median": 23.5,
+      "slo": 18.5,
+      "n_light": 1061
+    },
+    "2.0": {
+      "light_over_budget_pct": 1.8,
+      "rps": 34.15,
+      "avg": 576.5,
+      "median": 66.0,
+      "rps_std": 6.08,
+      "p95": 3514.5,
+      "p99": 9026.7,
+      "light_p95": 171.0,
+      "light_p99": 232.9,
+      "light_median": 24.5,
+      "slo": 15.0,
+      "n_light": 1061
+    }
+  }
+}

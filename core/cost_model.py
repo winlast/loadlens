@@ -226,6 +226,37 @@ class LinearParamCost(CostEstimator):
         return self._scaled(self.block_table, endpoint, param, worker)
 
 
+class DistortedCost(CostEstimator):
+    """
+    Оценка с искажённой величиной при сохранённом порядке.
+
+    Каждое значение базовой оценки b заменяется на ref * (b / ref)^gamma.
+    Преобразование строго возрастающее, поэтому порядок запросов по
+    оценке не меняется, а точка ref, в которой ставится порог допуска,
+    переходит сама в себя. Отсюда решение о допуске в асинхронный движок
+    при пороге ref остаётся в точности прежним при любом gamma, а
+    взвешивание очереди получает те же запросы в искажённом масштабе.
+    Это позволяет проверить по отдельности, какая из двух ролей оценки
+    требует верной величины, а какой достаточно верного порядка.
+    """
+
+    def __init__(self, base: CostEstimator, gamma: float, ref_ms: float):
+        self.base = base
+        self.gamma = gamma
+        self.ref_ms = ref_ms
+        self.name = f"{getattr(base, 'name', 'base')}^{gamma}"
+
+    def _distort(self, value: float) -> float:
+        return self.ref_ms * (max(value, 1e-3) / self.ref_ms) ** self.gamma
+
+    def cost(self, endpoint: str, param: float | None, worker: str) -> float:
+        return self._distort(self.base.cost(endpoint, param, worker))
+
+    def blocking(self, endpoint: str, param: float | None,
+                 worker: str) -> float:
+        return self._distort(self.base.blocking(endpoint, param, worker))
+
+
 class ConstantCost(CostEstimator):
     """Никакой оценки: все запросы считаются одинаковыми."""
 

@@ -31,7 +31,7 @@ from fastapi.responses import JSONResponse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from core.cost_model import ConstantCost, build_estimator
+from core.cost_model import ConstantCost, DistortedCost, build_estimator
 from core.policies import (
     WORKERS,
     AdaptiveOccupancyPolicy,
@@ -132,6 +132,15 @@ def build_policy(name: str) -> tuple[Policy, object]:
     # split_<оценка для допуска>_<оценка для взвешивания>_<порог>:
     # разводит две роли оценки по разным источникам, чтобы выяснить,
     # какая из них определяет результат.
+    # distort_<оценка>_<gamma>_<порог>: величина оценки искажается
+    # степенным преобразованием с неподвижной точкой в пороге. Допуск от
+    # этого не меняется, меняется только взвешивание очереди.
+    if name.startswith("distort_"):
+        _, source, gamma, budget = name.split("_", 3)
+        base = build_estimator(COST_POLICIES[f"work_{source}"])
+        estimator = DistortedCost(base, float(gamma), float(budget))
+        policy = BlockingBudgetPolicy(estimator, float(budget), name=name)
+        return policy, estimator
     if name.startswith("split_"):
         _, admit, weight, budget = name.split("_", 3)
         admit_est = build_estimator(COST_POLICIES[f"work_{admit}"])

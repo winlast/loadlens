@@ -210,6 +210,32 @@ def sample_param(spec: EndpointSpec, rng) -> int | None:
 ENDPOINT_NAMES = list(ENDPOINTS.keys())
 
 
+# Калибровочные операции для проверки очередной модели
+# (`experiments/validate_queue_model.py`). В рабочий поток запросов они не
+# входят и политикам не видны: нужны две настоящие операции с точно
+# задаваемым объёмом работы. PBKDF2 выполняется в C и освобождает GIL,
+# сортировка списка выполняется интерпретатором и GIL держит. Параметр —
+# объём работы в тысячах итераций или элементов.
+CALIBRATION_ENDPOINTS: dict[str, EndpointSpec] = {
+    "/calib/hash": EndpointSpec(
+        name="/calib/hash", kind="cpu",
+        param_name="kiter", param_base=100, param_range=(10, 2000),
+        exponent=1.0, cpu_iterations=100_000,
+    ),
+    "/calib/sort": EndpointSpec(
+        name="/calib/sort", kind="cpu",
+        param_name="kitems", param_base=100, param_range=(10, 2000),
+        exponent=1.0, sort_size=100_000,
+    ),
+}
+
+
+def get_spec(endpoint: str) -> EndpointSpec:
+    """Профиль маршрута: рабочего или калибровочного."""
+    spec = ENDPOINTS.get(endpoint)
+    return spec if spec is not None else CALIBRATION_ENDPOINTS[endpoint]
+
+
 # ---------------------------------------------------------------------------
 # Инициализация SQLite
 # ---------------------------------------------------------------------------
@@ -337,7 +363,7 @@ def run_cpu_part(spec: EndpointSpec, param: float | None = None) -> dict[str, An
 
 def run_sync(endpoint: str, param: float | None = None) -> dict[str, Any]:
     """Полное выполнение запроса в синхронном контексте (поток/процесс)."""
-    spec = ENDPOINTS[endpoint]
+    spec = get_spec(endpoint)
     factor = spec.factor(param)
     out: dict[str, Any] = {"endpoint": endpoint, "param": param}
     if spec.db_rows:
@@ -358,7 +384,7 @@ async def run_async(endpoint: str, client: httpx.AsyncClient,
     себя типичный async-сервис, в который попала CPU-задача, и именно
     этот режим отказа исследуется в работе.
     """
-    spec = ENDPOINTS[endpoint]
+    spec = get_spec(endpoint)
     factor = spec.factor(param)
     out: dict[str, Any] = {"endpoint": endpoint, "param": param}
     if spec.db_rows:

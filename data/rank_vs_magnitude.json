@@ -1,0 +1,40 @@
+{
+  "threshold_ms": 30.0,
+  "batch": 8,
+  "n_holdout": 156,
+  "n_async": 81,
+  "estimators": {
+    "endpoint_mean": {
+      "median_ape_blocking_pct": 53.6,
+      "kendall_tau_b_async": 0.716,
+      "auc_async_threshold": 0.952,
+      "median_batch_sum_error_pct": 42.0,
+      "n_safe": 57,
+      "n_unsafe": 24
+    },
+    "linear_param": {
+      "median_ape_blocking_pct": 35.0,
+      "kendall_tau_b_async": 0.791,
+      "auc_async_threshold": 1.0,
+      "median_batch_sum_error_pct": 18.9,
+      "n_safe": 57,
+      "n_unsafe": 24
+    },
+    "power_law": {
+      "median_ape_blocking_pct": 11.1,
+      "kendall_tau_b_async": 0.82,
+      "auc_async_threshold": 1.0,
+      "median_batch_sum_error_pct": 3.0,
+      "n_safe": 57,
+      "n_unsafe": 24
+    },
+    "neural": {
+      "median_ape_blocking_pct": 12.6,
+      "kendall_tau_b_async": 0.854,
+      "auc_async_threshold": 1.0,
+      "median_batch_sum_error_pct": 3.9,
+      "n_safe": 57,
+      "n_unsafe": 24
+    }
+  }
+}
