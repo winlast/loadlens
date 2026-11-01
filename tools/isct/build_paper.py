@@ -168,7 +168,8 @@ N = dict(locals())
 # ---------------------------------------------------------------------------
 TITLE = "Rank or Magnitude: Learned Request Cost Estimates for Event-Loop-Aware Routing"
 RUN_TITLE = "Rank or Magnitude: Learned Request Cost Estimates"
-RUN_AUTHORS = "S. D. Sinyavskiy and M. I. Kolosov"
+# LNCS: with more than two authors the even-page running head is "First et al."
+RUN_AUTHORS = "S. D. Sinyavskiy et al."
 
 from text_content import ABSTRACT, KEYWORDS, write_body  # noqa: E402
 
@@ -182,7 +183,8 @@ doc = Doc()
 doc.title(TITLE)
 # authors (ЦПНП format): names, correspondent mark, affiliation, e-mail and ORCID
 doc.raw_para(run("Stanislav D. Sinyavskiy", sz=20) + run("1(*)", sz=20, sup=True)
-             + run(" and Maxim I. Kolosov", sz=20) + run("1", sz=20, sup=True),
+             + run(", Maxim I. Kolosov", sz=20) + run("1", sz=20, sup=True)
+             + run(" and Valery I. Terekhov", sz=20) + run("1", sz=20, sup=True),
              after=120, jc="center", sz=20)
 doc.raw_para(run("* Correspondent author", sz=18), after=120, jc="center", sz=18)
 doc.raw_para(run("1", sz=18, sup=True)
@@ -193,6 +195,11 @@ doc.raw_para(run("S. D. Sinyavskiy, e-mail: ", sz=18)
              + run("; ORCID: 0009-0001-6773-0628", sz=18), after=0, jc="center", sz=18)
 doc.raw_para(run("M. I. Kolosov, e-mail: ", sz=18)
              + run("KOLOSOV_EMAIL", sz=18, font="Courier New", highlight="yellow")
+             + run("; ORCID: ", sz=18)
+             + run("0000-0000-0000-0000", sz=18, highlight="yellow"),
+             after=0, jc="center", sz=18)
+doc.raw_para(run("V. I. Terekhov, e-mail: ", sz=18)
+             + run("TEREKHOV_EMAIL", sz=18, font="Courier New", highlight="yellow")
              + run("; ORCID: ", sz=18)
              + run("0000-0000-0000-0000", sz=18, highlight="yellow"),
              after=200, jc="center", sz=18)

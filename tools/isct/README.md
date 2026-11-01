@@ -1,7 +1,7 @@
 # Статья для ISCT (Springer, LNCS)
 
 «Rank or Magnitude: Learned Request Cost Estimates for Event-Loop-Aware Routing»,
-С. Д. Синявский, М. И. Колосов. Готовый файл — `docs/ISCT/Sinyavskiy_ISCT.docx`.
+С. Д. Синявский, М. И. Колосов, В. И. Терехов. Готовый файл — `docs/ISCT/Sinyavskiy_ISCT.docx`.
 
 Документ собирается из кода, как и остальные статьи проекта. Править .docx руками
 нельзя: при следующей сборке правки пропадут. Каждое число в тексте читается из
