@@ -126,7 +126,7 @@ def fig_distortion():
 def fig_capacity():
     d = json.loads((M / "nginx_capacity.json").read_text(encoding="utf-8"))
     fig, ax = plt.subplots(figsize=(12.2 * CM, 4.3 * CM))
-    names = {"обычная (least_conn)": ("least connections", dict(marker="o", mfc="white")),
+    names = {"обычная (least_conn)": ("least-connections", dict(marker="o", mfc="white")),
              "по оценке стоимости": ("cost-aware admission", dict(marker="s", mfc="black"))}
     for key, (label, st) in names.items():
         curve = d["режимы"][key]["кривая"]

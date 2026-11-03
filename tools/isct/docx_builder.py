@@ -65,8 +65,11 @@ def rich(text, sz=20, b=False, i=False):
 
 
 def ppr(before=0, after=0, left=0, right=0, first=None, hanging=None, jc="both",
-        keep_next=False, keep_lines=False, num=None, tabs=None, line=240, sz=20):
+        keep_next=False, keep_lines=False, num=None, tabs=None, line=240, sz=20,
+        style=None, outline=None):
     out = []
+    if style:
+        out.append(f'<w:pStyle w:val="{style}"/>')
     if keep_next:
         out.append('<w:keepNext/>')
     if keep_lines:
@@ -85,6 +88,8 @@ def ppr(before=0, after=0, left=0, right=0, first=None, hanging=None, jc="both",
         ind += f' w:firstLine="{first if first is not None else 0}"'
     out.append(ind + '/>')
     out.append(f'<w:jc w:val="{jc}"/>')
+    if outline is not None:
+        out.append(f'<w:outlineLvl w:val="{outline}"/>')
     out.append(rpr(sz=sz))
     return "<w:pPr>" + "".join(out) + "</w:pPr>"
 
@@ -101,6 +106,31 @@ class Doc:
         self.tab_no = 0
         self.eq_no = 0
         self.after_block = True  # next body paragraph has no indent
+        self.cited: list[str] = []  # reference keys in order of first citation
+
+    # ---- citations ----------------------------------------------------------
+    # In the text a citation is written by key, e.g. [@dean13] or [@mv22; @mitz20].
+    # Numbers are assigned in order of first citation, as the requirements demand,
+    # and runs of three or more consecutive numbers are shown as a range.
+    def cite(self, text):
+        def repl(m):
+            nums = []
+            for key in (k.strip().lstrip("@") for k in m.group(1).split(";")):
+                if key not in self.cited:
+                    self.cited.append(key)
+                nums.append(self.cited.index(key) + 1)
+            nums = sorted(set(nums))
+            assert len(nums) <= 3, f"more than three sources in one bracket: {m.group(0)}"
+            parts, i = [], 0
+            while i < len(nums):
+                j = i
+                while j + 1 < len(nums) and nums[j + 1] == nums[j] + 1:
+                    j += 1
+                parts.append(f"{nums[i]}–{nums[j]}" if j - i >= 2
+                             else ", ".join(str(n) for n in nums[i:j + 1]))
+                i = j + 1
+            return "[" + ", ".join(parts) + "]"
+        return re.sub(r"\[(@[^\]]+)\]", repl, text)
 
     # ---- front matter ---------------------------------------------------
     def title(self, text):
@@ -120,10 +150,12 @@ class Doc:
                               jc="left", sz=18))
 
     # ---- headings and text -----------------------------------------------
+    # Headings use the template's own "heading 1/2" styles (LNCS sizes), so they
+    # appear in Word's navigation pane; numbering comes from the template's list.
     def h1(self, text):
         self.body.append(para(run(text, sz=24, b=True), before=360, after=240, left=567,
                               hanging=567, jc="left", keep_next=True, keep_lines=True,
-                              num=(1, 0), sz=24))
+                              num=(1, 0), sz=24, style="Heading1", outline=0))
         self.after_block = True
         self._last_h1 = True
 
@@ -131,7 +163,7 @@ class Doc:
         before = 0 if getattr(self, "_last_h1", False) else 240
         self.body.append(para(run(text, sz=20, b=True), before=before, after=160, left=567,
                               hanging=567, jc="left", keep_next=True, keep_lines=True,
-                              num=(1, 1), sz=20))
+                              num=(1, 1), sz=20, style="Heading2", outline=1))
         self.after_block = True
         self._last_h1 = False
 
@@ -140,7 +172,7 @@ class Doc:
         content = ""
         if runin:
             content += run(runin + " ", sz=20, b=True)
-        content += rich(text)
+        content += rich(self.cite(text))
         self.body.append(para(content, first=first, jc="both"))
         self.after_block = False
         self._last_h1 = False
@@ -241,13 +273,15 @@ class Doc:
                 content = rich(text, sz=18, b=False)
                 cells.append(f'<w:tc><w:tcPr><w:tcW w:w="{widths[c_i]}" w:type="dxa"/>{tcb}'
                              '<w:vAlign w:val="center"/></w:tcPr>'
-                             f'{para(content, jc=align, keep_next=r_i < len(all_rows) - 1, sz=18)}</w:tc>')
+                             f'{para(content, jc=align, keep_next=True, sz=18)}</w:tc>')
             hdr = '<w:tblHeader/>' if r_i == 0 else ''
             xml.append(f'<w:tr><w:trPr><w:cantSplit/>{hdr}</w:trPr>{"".join(cells)}</w:tr>')
         xml.append('</w:tbl>')
         self.body.append("".join(xml))
         if note:
-            self.body.append(para(rich(note, sz=18), before=60, after=0, jc="both", sz=18))
+            # table, note and source line stay on one page
+            self.body.append(para(rich(note, sz=18), before=60, after=0, jc="both",
+                                  keep_next=True, keep_lines=True, sz=18))
         self.body.append(para(rich(source, sz=18), before=0 if note else 60, after=240,
                               jc="both", sz=18))
         self.after_block = True
@@ -258,15 +292,21 @@ class Doc:
         self.body.append(para(run(head + " ", sz=18, b=True) + rich(text, sz=18),
                               before=before, after=0, jc="both", sz=18))
 
-    def references(self, items: list[str]):
+    def references(self, items: dict[str, str]):
+        """The list in order of first citation; every entry must be cited and vice versa."""
+        missing = [k for k in self.cited if k not in items]
+        uncited = [k for k in items if k not in self.cited]
+        assert not missing and not uncited, f"missing {missing}, never cited {uncited}"
         self.body.append(para(run("References", sz=24, b=True), before=360, after=240,
-                              left=567, hanging=567, jc="left", keep_next=True, sz=24))
-        for it in items:
+                              left=567, hanging=567, jc="left", keep_next=True, sz=24,
+                              style="Heading1", outline=0))
+        for it in (items[k] for k in self.cited):
             self.body.append(para(rich(it, sz=18), left=341, hanging=114, jc="both",
                                   num=(2, 0), sz=18))
 
     # ---- packaging ---------------------------------------------------------
-    def save(self, template_dir: Path, out: Path, running_authors: str, running_title: str):
+    def save(self, template_dir: Path, out: Path, running_authors: str, running_title: str,
+             creator: str | None = None):
         work = out.with_suffix(".build")
         if work.exists():
             shutil.rmtree(work)
@@ -336,7 +376,8 @@ class Doc:
         if cp.exists():
             c = cp.read_text(encoding="utf-8")
             c = re.sub(r"<dc:title>.*?</dc:title>", f"<dc:title>{escape(running_title)}</dc:title>", c)
-            c = re.sub(r"<dc:creator>.*?</dc:creator>", f"<dc:creator>{escape(running_authors)}</dc:creator>", c)
+            c = re.sub(r"<dc:creator>.*?</dc:creator>",
+                       f"<dc:creator>{escape(creator or running_authors)}</dc:creator>", c)
             cp.write_text(c, encoding="utf-8")
         if out.exists():
             out.unlink()

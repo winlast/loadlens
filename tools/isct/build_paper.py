@@ -123,29 +123,38 @@ assert max(long_ratios) == max_over
 E1_TEXT_1 = (
     "Figure 1a compares measured probe delays with the prediction of (1). For the event loop the "
     "model captures the effect across two orders of magnitude (correlation of logarithms "
-    f"{r_log:.2f}). For the shortest computations ({cal['hash_small']:.0f} ms) the delays of "
+    f"{r_log:.2f}): with {cal['hash_small']:.0f} ms computations the delays of "
     + ", ".join(f"{p['probe_delay_mean_ms']:.1f}" for p in small)
-    + " ms at the three utilizations match the predicted "
+    + " ms match the predicted "
     + ", ".join(f"{p['pk_predicted_wait_ms']:.1f}" for p in small)
-    + " ms. For longer computations and mixes the measurement is "
-    f"{min(long_ratios):.1f}–{max(long_ratios):.1f} times the prediction, the largest gap "
-    f"occurring at $\\rho =0.6$ with {cal['hash_large']:.0f} ms computations, as the loop also "
-    "spends time on connections and response serialization not covered by the idle calibration. "
-    "On the thread engine with "
+    + " ms, while for longer computations and mixes the measurement is "
+    f"{min(long_ratios):.1f}–{max(long_ratios):.1f} times the prediction, most at $\\rho =0.6$ "
+    f"with {cal['hash_large']:.0f} ms computations, presumably because the loop also spends time "
+    "on connections and response serialization. On the thread engine with "
     f"hashing, which releases the interpreter lock, probes waited at most {s_hash_max:.1f} ms, "
     f"whereas an event loop fed the same streams would impose up to {s_hash_pred_max:.0f} ms.")
 E1_TEXT_2 = (
-    "The second moment matters in the way the model predicts. At equal utilization and nearly "
+    "At equal utilization and nearly "
     "equal mean blocking, a stream in which one computation in ten is long delayed probes "
     f"{bim5['probe_delay_mean_ms'] / eq5['probe_delay_mean_ms']:.1f} times more at $\\rho =0.5$ "
     f"({bim5['probe_delay_mean_ms']:.1f} against {eq5['probe_delay_mean_ms']:.1f} ms) and "
     f"{bim3['probe_delay_mean_ms'] / eq3['probe_delay_mean_ms']:.1f} times more at $\\rho =0.3$, "
-    f"while (1) gives {pk_ratio5:.1f} and {pk_ratio3:.1f} (Fig. 1b). Computations that hold the "
+    + (f"while (1) gives {pk_ratio5:.1f} in both cases (Fig. 1b). "
+       if f"{pk_ratio5:.1f}" == f"{pk_ratio3:.1f}"
+       else f"while (1) gives {pk_ratio5:.1f} and {pk_ratio3:.1f} (Fig. 1b). ")
+    + "Computations that hold the "
     "interpreter lock remove the protection offered by threads: sorting with blocking of "
     f"{cal['sort_large']:.0f} ms at $\\rho =0.4$ delayed probes on the thread engine by "
     f"{sort_large_s['probe_delay_mean_ms']:.1f} ms, against {sort_large_a['probe_delay_mean_ms']:.1f} "
-    "ms on the event loop. Such work counts as blocking on both engines, which is why the router "
-    "estimates $b_{e}$ for each engine separately instead of labelling requests as computational.")
+    "ms on the event-loop engine.")
+
+# duration and number of computations per point of the model validation
+_pts = qa["points"] + qs["points"]
+dur_min = min(p["duration_s"] for p in _pts)
+dur_max = max(p["duration_s"] for p in _pts)
+_jobs = [p["lambda_per_s"] * p["duration_s"] for p in _pts]
+jobs_min = int(round(min(_jobs), -1))
+jobs_max = int(round(max(_jobs), -2))
 
 N_PLACEHOLDER = "[pending]"
 DIST_ABSTRACT = N_PLACEHOLDER
@@ -202,5 +211,6 @@ doc.raw_para(run("V. I. Terekhov, e-mail: ", sz=18)
 doc.abstract(ABSTRACT(N))
 doc.keywords(KEYWORDS)
 write_body(doc, N, FIG)
-doc.save(TPL, OUT, RUN_AUTHORS, RUN_TITLE)
+doc.save(TPL, OUT, RUN_AUTHORS, RUN_TITLE,
+         creator="Stanislav D. Sinyavskiy, Maxim I. Kolosov, Valery I. Terekhov")
 print("saved", OUT)

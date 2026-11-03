@@ -41,4 +41,15 @@ powershell -File tools/isct/word_check.ps1 -Docx (Resolve-Path docs/ISCT/Sinyavs
 | 3.4 искажение величины, рис. 2 | `magnitude_distortion.json`, `mechanism.json` | `experiments/benchmark_distortion.py` |
 | 3.5 рабочие точки, табл. 2 | `budget_frontier.json`, `homogeneous_*.json` | `experiments/benchmark_budget.py` |
 | 3.6 модуль nginx, рис. 3 | `nginx_capacity.json`, `gorouter.json` | `nginx/`, `gorouter/` |
-| 4 деградация движка | `drift_comparison.json` | `experiments/benchmark_drift.py` |
+| 3.7 деградация движка | `drift_comparison.json` | `experiments/benchmark_drift.py` |
+
+В обсуждении и заключении новых чисел нет: они только ссылаются на разделы 3.x.
+
+## Ссылки на источники
+
+В тексте источник указывается ключом: `[@dean13]`, `[@mv22; @mitz20]`. Номера
+расставляются при сборке в порядке первого упоминания, три и больше подряд
+идущих номера сворачиваются в диапазон, больше трёх источников в одних скобках
+сборка не допускает. Список источников выводится в том же порядке; если
+источник в списке ни разу не упомянут или упомянут, но отсутствует в списке,
+сборка останавливается. DOI всех источников проверены по Crossref и DataCite.
