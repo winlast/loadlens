@@ -13,9 +13,9 @@ def f0(x):
     return f"{x:.0f}"
 
 
-def thin(n):
-    """Thousands separated by a thin space, as in 32 968."""
-    return f"{n:,}".replace(",", " ")
+def grouped(n):
+    """Thousands separated by a comma, the English convention: 32,968."""
+    return f"{n:,}"
 
 
 def ABSTRACT(N):
@@ -180,7 +180,7 @@ def write_body(doc, N, FIG: Path):
     doc.p(
         "The service time of each route is profiled over a grid of its parameter. "
         "Outside the testbed, latency was taken from the access log of OpenResty in front of "
-        f"PostgREST 12 and PostgreSQL 16 with 300 000 rows ({thin(pg['обращений'])} requests), "
+        f"PostgREST 12 and PostgreSQL 16 with 300,000 rows ({grouped(pg['обращений'])} requests), "
         "and the Azure Functions trace [@shahrad20] was analysed for functions with at least 100 invocations "
         "and a median duration of at least 1 ms.", runin="Cost variability.")
     doc.p(
@@ -243,7 +243,7 @@ def write_body(doc, N, FIG: Path):
         f"{f0(pg['объясняется_одним_параметром_%'])}% of the latency variance and all visible "
         f"features {f0(pg['объясняется_всеми_признаками_%'])}%. In the Azure trace the ratio of the "
         "99th to the 50th percentile within one function is at least 10 for "
-        f"{f1(azs['доля_функций_с_разбросом_от_10_раз_%'])}% of {thin(N['az']['функций'])} functions; "
+        f"{f1(azs['доля_функций_с_разбросом_от_10_раз_%'])}% of {grouped(N['az']['функций'])} functions; "
         f"it is {f0(azs['медиана'])} for the median function, above "
         f"{f0(azs['четверть_сверху'])} for a quarter of them and above {f0(azs['десятая_сверху'])} for "
         "a tenth.")
