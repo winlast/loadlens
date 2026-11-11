@@ -16,6 +16,7 @@ from omml import omath
 
 TNR = "Times New Roman"
 TEXT_W = 6918  # twips, 12.2 cm
+LANG_TAG = ["en-US"]  # language of all runs, set by Doc
 
 
 def rpr(sz=20, b=False, i=False, sup=False, font=TNR, highlight=None):
@@ -30,7 +31,7 @@ def rpr(sz=20, b=False, i=False, sup=False, font=TNR, highlight=None):
         out.append(f'<w:highlight w:val="{highlight}"/>')
     if sup:
         out.append('<w:vertAlign w:val="superscript"/>')
-    out.append('<w:lang w:val="en-US"/>')
+    out.append(f'<w:lang w:val="{LANG_TAG[0]}"/>')
     return "<w:rPr>" + "".join(out) + "</w:rPr>"
 
 
@@ -66,7 +67,7 @@ def rich(text, sz=20, b=False, i=False):
 
 def ppr(before=0, after=0, left=0, right=0, first=None, hanging=None, jc="both",
         keep_next=False, keep_lines=False, num=None, tabs=None, line=240, sz=20,
-        style=None, outline=None):
+        style=None, outline=None, nohyph=False):
     out = []
     if style:
         out.append(f'<w:pStyle w:val="{style}"/>')
@@ -80,6 +81,8 @@ def ppr(before=0, after=0, left=0, right=0, first=None, hanging=None, jc="both",
     if tabs:
         out.append('<w:tabs>' + "".join(
             f'<w:tab w:val="{v}" w:pos="{p}"/>' for v, p in tabs) + '</w:tabs>')
+    if nohyph:
+        out.append('<w:suppressAutoHyphens/>')
     out.append(f'<w:spacing w:before="{before}" w:after="{after}" w:line="{line}" w:lineRule="auto"/>')
     ind = f'<w:ind w:left="{left}" w:right="{right}"'
     if hanging is not None:
@@ -99,7 +102,17 @@ def para(content, **kw):
 
 
 class Doc:
-    def __init__(self):
+    LABELS = {
+        "en": {"abstract": "Abstract. ", "keywords": "Keywords:", "fig": "Fig.",
+               "table": "Table", "refs": "References"},
+        "ru": {"abstract": "Аннотация. ", "keywords": "Ключевые слова:", "fig": "Рис.",
+               "table": "Таблица", "refs": "Список литературы"},
+    }
+
+    def __init__(self, lang="en"):
+        self.L = self.LABELS[lang]
+        self.lang = lang
+        LANG_TAG[0] = "ru-RU" if lang == "ru" else "en-US"
         self.body: list[str] = []
         self.media: list[tuple[str, Path, str]] = []  # (rid, path, content type)
         self.fig_no = 0
@@ -135,17 +148,17 @@ class Doc:
     # ---- front matter ---------------------------------------------------
     def title(self, text):
         self.body.append(para(run(text, sz=28, b=True), after=480, jc="center",
-                              keep_next=True, keep_lines=True, sz=28))
+                              keep_next=True, keep_lines=True, sz=28, nohyph=True))
 
     def raw_para(self, content, **kw):
-        self.body.append(para(content, **kw))
+        self.body.append(para(content, nohyph=True, **kw))
 
     def abstract(self, text):
-        self.body.append(para(run("Abstract. ", sz=18, b=True) + rich(text, sz=18),
+        self.body.append(para(run(self.L["abstract"], sz=18, b=True) + rich(text, sz=18),
                               before=600, after=0, left=567, right=567, jc="both", sz=18))
 
     def keywords(self, text):
-        self.body.append(para(run("Keywords:", sz=18, b=True) + run(" " + text, sz=18),
+        self.body.append(para(run(self.L["keywords"], sz=18, b=True) + run(" " + text, sz=18),
                               before=220, after=360, left=567, right=567, hanging=567,
                               jc="left", sz=18))
 
@@ -155,7 +168,7 @@ class Doc:
     def h1(self, text):
         self.body.append(para(run(text, sz=24, b=True), before=360, after=240, left=567,
                               hanging=567, jc="left", keep_next=True, keep_lines=True,
-                              num=(1, 0), sz=24, style="Heading1", outline=0))
+                              num=(1, 0), sz=24, style="Heading1", outline=0, nohyph=True))
         self.after_block = True
         self._last_h1 = True
 
@@ -163,7 +176,7 @@ class Doc:
         before = 0 if getattr(self, "_last_h1", False) else 240
         self.body.append(para(run(text, sz=20, b=True), before=before, after=160, left=567,
                               hanging=567, jc="left", keep_next=True, keep_lines=True,
-                              num=(1, 1), sz=20, style="Heading2", outline=1))
+                              num=(1, 1), sz=20, style="Heading2", outline=1, nohyph=True))
         self.after_block = True
         self._last_h1 = False
 
@@ -234,7 +247,7 @@ class Doc:
             '</a:graphicData></a:graphic></wp:inline></w:drawing></w:r>')
         self.body.append(para(drawing, before=240, after=0, jc="center", keep_next=True))
         jc = "center" if len(caption) < 90 else "both"
-        self.body.append(para(run(f"Fig. {n}.", sz=18, b=True) + rich(" " + caption, sz=18),
+        self.body.append(para(run(f"{self.L['fig']} {n}.", sz=18, b=True) + rich(" " + caption, sz=18),
                               before=120, after=0, jc=jc, keep_next=True, sz=18))
         if note:
             self.body.append(para(rich(note, sz=18), before=0, after=0, jc="both",
@@ -248,7 +261,7 @@ class Doc:
         self.tab_no += 1
         n = self.tab_no
         jc = "center" if len(caption) < 90 else "both"
-        self.body.append(para(run(f"Table {n}.", sz=18, b=True) + rich(" " + caption, sz=18),
+        self.body.append(para(run(f"{self.L['table']} {n}.", sz=18, b=True) + rich(" " + caption, sz=18),
                               before=240, after=120, jc=jc, keep_next=True, sz=18))
         total = sum(widths)
         grid = "".join(f'<w:gridCol w:w="{w}"/>' for w in widths)
@@ -297,7 +310,7 @@ class Doc:
         missing = [k for k in self.cited if k not in items]
         uncited = [k for k in items if k not in self.cited]
         assert not missing and not uncited, f"missing {missing}, never cited {uncited}"
-        self.body.append(para(run("References", sz=24, b=True), before=360, after=240,
+        self.body.append(para(run(self.L["refs"], sz=24, b=True), before=360, after=240,
                               left=567, hanging=567, jc="left", keep_next=True, sz=24,
                               style="Heading1", outline=0))
         for it in (items[k] for k in self.cited):
@@ -363,6 +376,11 @@ class Doc:
         # requirements ask for line art of at least 800 dpi.
         sp = work / "word/settings.xml"
         st = sp.read_text(encoding="utf-8")
+        if self.lang == "ru" and "autoHyphenation" not in st:
+            # Russian text is hyphenated automatically, as is usual for Russian typesetting
+            at = st.find("<w:defaultTabStop")
+            at = st.find("/>", at) + 2 if at >= 0 else st.find(">", st.find("<w:settings")) + 1
+            st = st[:at] + "<w:autoHyphenation/>" + st[at:]
         if "doNotAutoCompressPictures" not in st:
             tag = "<w:doNotAutoCompressPictures/>"
             later = ("forceUpgrade", "captions", "readModeInkLockDown", "smartTagType",

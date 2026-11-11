@@ -15,6 +15,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from docx_builder import Doc, run  # noqa: E402
 
 R, M, FIG, TPL, OUT = (Path(a) for a in sys.argv[1:6])
+LANG = sys.argv[6] if len(sys.argv) > 6 else "en"  # "ru" builds the Russian version
+SUF = "_ru" if LANG == "ru" else ""
 
 
 def load(p):
@@ -105,7 +107,7 @@ cap200_l, cap200_c = cl["ёмкость_при_пороге"]["200.0"]["рпс"]
 
 def fig_h(name):
     from PIL import Image
-    with Image.open(FIG / f"{name}.png") as im:
+    with Image.open(FIG / f"{name}{SUF}.png") as im:
         w, h = im.size
     return round(12.2 * h / w, 2)
 
@@ -166,7 +168,11 @@ FIG1_H = fig_h("fig1_queue_model")
 FIG2_H = fig_h("fig2_distortion")
 FIG3_H = fig_h("fig3_capacity")
 
-if (Path(__file__).parent / "results_text.py").exists():
+if LANG == "ru":
+    from results_text_ru import e1_texts, results_text
+    E1_TEXT_1, E1_TEXT_2 = e1_texts(dict(locals()))
+    DIST_ABSTRACT, E2_TEXT_1, E2_TEXT_2, DISC_1, CONCL = results_text(dict(locals()))
+elif (Path(__file__).parent / "results_text.py").exists():
     from results_text import results_text
     DIST_ABSTRACT, E2_TEXT_1, E2_TEXT_2, DISC_1, CONCL = results_text(dict(locals()))
 
@@ -175,42 +181,56 @@ N = dict(locals())
 # ---------------------------------------------------------------------------
 # text
 # ---------------------------------------------------------------------------
-TITLE = "Rank or Magnitude: Learned Request Cost Estimates for Event-Loop-Aware Routing"
-RUN_TITLE = "Rank or Magnitude: Learned Request Cost Estimates"
-# LNCS: with more than two authors the even-page running head is "First et al."
-RUN_AUTHORS = "S. D. Sinyavskiy et al."
+RU = LANG == "ru"
+if RU:
+    # the Russian title is the one fixed in the expert and export conclusions
+    TITLE = ("Порядок или величина: обучаемые оценки стоимости запросов для маршрутизации "
+             "с учётом цикла событий")
+    RUN_TITLE = "Порядок или величина: обучаемые оценки стоимости запросов"
+    RUN_AUTHORS = "С. Д. Синявский и др."
+    from text_content_ru import ABSTRACT, KEYWORDS, write_body  # noqa: E402
+else:
+    TITLE = "Rank or Magnitude: Learned Request Cost Estimates for Event-Loop-Aware Routing"
+    RUN_TITLE = "Rank or Magnitude: Learned Request Cost Estimates"
+    # LNCS: with more than two authors the even-page running head is "First et al."
+    RUN_AUTHORS = "S. D. Sinyavskiy et al."
+    from text_content import ABSTRACT, KEYWORDS, write_body  # noqa: E402
 
-from text_content import ABSTRACT, KEYWORDS, write_body  # noqa: E402
-
-words = len(re.findall(r"[A-Za-z0-9][A-Za-z0-9.\-]*", re.sub(r"\$[^$]*\$", "x", ABSTRACT(N))))
+words = len(re.findall(r"\w[\w.\-]*", re.sub(r"\$[^$]*\$", "x", ABSTRACT(N))))
 title_words = len(TITLE.replace(":", "").split())
 print(f"abstract words: {words}; title words: {title_words}")
 assert 150 <= words <= 250, words
-assert title_words <= 12
+assert title_words <= 12 or RU
 
-doc = Doc()
+doc = Doc(LANG)
 doc.title(TITLE)
 # authors (ЦПНП format): names, correspondent mark, affiliation, e-mail and ORCID
-doc.raw_para(run("Stanislav D. Sinyavskiy", sz=20) + run("1(*)", sz=20, sup=True)
-             + run(", Maxim I. Kolosov", sz=20) + run("1", sz=20, sup=True)
-             + run(" and Valery I. Terekhov", sz=20) + run("1", sz=20, sup=True),
+A = (("Станислав Д. Синявский", ", Максим И. Колосов", " и Валерий И. Терехов",
+      "* Ответственный автор",
+      " Московский государственный технический университет им. Н.Э. Баумана, Москва, Россия",
+      "С. Д. Синявский", "М. И. Колосов", "В. И. Терехов") if RU else
+     ("Stanislav D. Sinyavskiy", ", Maxim I. Kolosov", " and Valery I. Terekhov",
+      "* Correspondent author", " Bauman Moscow State Technical University, Moscow, Russia",
+      "S. D. Sinyavskiy", "M. I. Kolosov", "V. I. Terekhov"))
+doc.raw_para(run(A[0], sz=20) + run("1(*)", sz=20, sup=True)
+             + run(A[1], sz=20) + run("1", sz=20, sup=True)
+             + run(A[2], sz=20) + run("1", sz=20, sup=True),
              after=120, jc="center", sz=20)
-doc.raw_para(run("* Correspondent author", sz=18), after=120, jc="center", sz=18)
-doc.raw_para(run("1", sz=18, sup=True)
-             + run(" Bauman Moscow State Technical University, Moscow, Russia", sz=18),
-             after=0, jc="center", sz=18)
-doc.raw_para(run("S. D. Sinyavskiy, e-mail: ", sz=18)
+doc.raw_para(run(A[3], sz=18), after=120, jc="center", sz=18)
+doc.raw_para(run("1", sz=18, sup=True) + run(A[4], sz=18), after=0, jc="center", sz=18)
+doc.raw_para(run(f"{A[5]}, e-mail: ", sz=18)
              + run("ssd-tula@mail.ru", sz=18, font="Courier New")
              + run("; ORCID: 0009-0001-6773-0628", sz=18), after=0, jc="center", sz=18)
-doc.raw_para(run("M. I. Kolosov, e-mail: ", sz=18)
+doc.raw_para(run(f"{A[6]}, e-mail: ", sz=18)
              + run("mgtumax@yandex.ru", sz=18, font="Courier New")
              + run("; ORCID: 0009-0004-9863-2782", sz=18), after=0, jc="center", sz=18)
-doc.raw_para(run("V. I. Terekhov, e-mail: ", sz=18)
+doc.raw_para(run(f"{A[7]}, e-mail: ", sz=18)
              + run("terekchow@bmstu.ru", sz=18, font="Courier New")
              + run("; ORCID: 0000-0003-2312-7285", sz=18), after=200, jc="center", sz=18)
 doc.abstract(ABSTRACT(N))
 doc.keywords(KEYWORDS)
 write_body(doc, N, FIG)
 doc.save(TPL, OUT, RUN_AUTHORS, RUN_TITLE,
-         creator="Stanislav D. Sinyavskiy, Maxim I. Kolosov, Valery I. Terekhov")
+         creator=("Синявский С. Д., Колосов М. И., Терехов В. И." if RU else
+                  "Stanislav D. Sinyavskiy, Maxim I. Kolosov, Valery I. Terekhov"))
 print("saved", OUT)
