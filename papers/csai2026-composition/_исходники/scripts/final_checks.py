@@ -7,7 +7,7 @@ from pypdf import PdfReader,PdfWriter
 from pypdf.generic import NameObject
 from docx import Document
 from docx.oxml.ns import qn
-from paper_content import TITLE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES
+from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES
 count=0
 def check(value,message):
     global count
@@ -18,7 +18,7 @@ report={'documents':{},'similarity':{},'reproduction':{}}
 check(len(ABSTRACT.split())<=200,'abstract length');check(len(KEYWORDS)<=5,'keywords')
 template=BASE.parent/'IET-Template.docx';check(digest(template)=='5c47aa829c833b784e253c3491dd51586cebee956d5d5c9b5434d49eabf4929f','reference preserved')
 identities=re.compile(r'sinyav|letunov|galyuk|teplits|sanina|babichev|ssd-tula|winlast|bauman',re.I)
-for author,qa in [(False,'anonymous-with-label'),(True,'authors-final2')]:
+for author,qa in [(False,'anonymous-review-final2'),(True,'authors-review-final2')]:
     stem='CSAI2026_Composition_'+('Authors' if author else 'Anonymous');path=OUT/(stem+'.docx');d=Document(path)
     check(len(d.sections)==2,'two sections')
     for s in d.sections:
@@ -27,6 +27,7 @@ for author,qa in [(False,'anonymous-with-label'),(True,'authors-final2')]:
     check(d.styles['PaperParagraphs'].font.size.pt==10,'body size');check(d.styles['PaperTitle'].font.size.pt==18,'title size')
     check(len(d.tables)==5,'table count');check(len(d.inline_shapes)==2,'figure count')
     body='\n'.join(p.text for p in d.paragraphs)
+    check(d.core_properties.subject==CONFERENCE,'full conference name in DOCX Subject')
     if not author:check(body.count('Anonymous authors')==1,'anonymous author label')
     check('@' not in body if not author else True,'markup removed')
     check(re.search(r'\d (?:ms|µs|cm|mm|pt)\b',body) is None,'number unit nonbreaking space')
@@ -41,19 +42,20 @@ for author,qa in [(False,'anonymous-with-label'),(True,'authors-final2')]:
         if not author:check(not identities.search(xml),'anonymous OOXML identifiers')
         check('w:vertAlign w:val="subscript"' in xml,'real subscripts')
     source=BASE.parent/'qa'/qa/(stem+'.pdf');reader=PdfReader(source);writer=PdfWriter();writer.clone_document_from_reader(reader);writer.pdf_header='%PDF-1.4';writer._root_object.pop(NameObject('/Version'),None)
-    writer.add_metadata({'/Title':TITLE,'/Author':d.core_properties.author or '', '/Creator':'Microsoft Word','/Subject':'CSAI 2026','/Keywords':', '.join(KEYWORDS)})
+    writer.add_metadata({'/Title':TITLE,'/Author':d.core_properties.author or '', '/Creator':'Microsoft Word','/Subject':CONFERENCE,'/Keywords':', '.join(KEYWORDS)})
     final=OUT/(stem+'.pdf')
     if not (author and '--anonymous-only' in sys.argv):
         with final.open('wb') as f:writer.write(f)
     pdf=pymupdf.open(final);original=pymupdf.open(source);check(len(pdf)==6,'six pages')
     check(final.read_bytes().startswith(b'%PDF-1.4'),'PDF version')
+    check(PdfReader(final).metadata.subject==CONFERENCE,'full conference name in PDF Subject')
     fonts={};unit_starts=[]
     for index,page in enumerate(pdf):
         check(abs(page.rect.width-595.3)<1 and abs(page.rect.height-841.9)<1,'PDF A4')
         a=page.get_pixmap(matrix=pymupdf.Matrix(1,1));b=original[index].get_pixmap(matrix=pymupdf.Matrix(1,1));check(a.samples==b.samples,'PDF pixels preserved')
         check('\ufffd' not in page.get_text(),'replacement glyph')
         for f in page.get_fonts():
-            name=f[3];embedded=len(pdf.extract_font(f[0])[3]);fonts[name]=embedded;check(embedded>0,'embedded font');check('TimesNewRoman' in name,'standard font')
+            name=f[3];embedded=len(pdf.extract_font(f[0])[3]);fonts[name]=embedded;check(embedded>0,'embedded font');check('TimesNewRoman' in name,'standard font');check(re.match(r'^[A-Z]{6}\+',name) is not None,'font subset')
         for block in page.get_text('dict')['blocks']:
             for line in block.get('lines',[]):
                 text=''.join(s['text'] for s in line['spans']).strip()

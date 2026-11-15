@@ -19,7 +19,7 @@ Analysis fits the ten seeded versions of each learned method using the frozen pa
 
 ## Collect new timings
 
-The retained design is authoritative; do not run the design command over it when reproducing the reported analysis. New measurements are hardware-dependent and are not expected to be byte identical. The collectors resume existing JSONL files; use a separate copy of data/composition for a fresh collection.
+The retained design is authoritative; do not run the design command over it when reproducing the reported analysis. New measurements are hardware-dependent and are not expected to be byte identical. For a fresh collection, make a separate working copy of this entire artifact. In that copy, retain design.json in data/composition and move the existing calibration.jsonl, raw-*.jsonl, http_replay.jsonl and http_replay_idle.json into a separate backup directory. Preserve the original artifact unchanged. The collectors resume existing rows: running them against the complete retained JSONL files skips those measurements rather than collecting new timings. After fresh collection, run analysis again before replay and final verification; do not mix old predictions with new measurements.
 
 ```
 python experiments/composition/study.py collect
@@ -108,7 +108,7 @@ report='''# Проверка новой статьи и сравнение с п
 
 Содержательная и форматная проверка завершена. Все авторы должны подтвердить предпочтительное латинское написание, вклад, согласие с текстом и необходимые сведения о конфликтах интересов; эти сведения не выдуманы. Адреса остальных соавторов не были переданы.
 
-Официальная страница https://csai.org/submission.html требует IET double-column и минимум6 полных страниц; каждую страницу сверх6 оплачивают отдельно. Поэтому старое указание CFP об одной колонке и оплате после8 страниц не использовано. Та же официальная страница запрещает изменение названий и состава авторов после дедлайна. Текущая дата уже16 ноября, объявленный дедлайн15 ноября. Новая статья имеет новое название; возможность правки в EasyChair сама по себе не отменяет этого правила. Для замены названия/темы в уже поданной заявке258 потребуется согласование организаторов. Я не менял, не отзывал и не подавал заявку, не отправлял сообщения организаторам и не создавал платных обязательств.
+Официальная страница https://csai.org/submission.html требует IET double-column и минимум6 полных страниц; каждую страницу сверх6 оплачивают отдельно. Поэтому старое указание CFP об одной колонке и оплате после8 страниц не использовано. Та же официальная страница запрещает изменение названий и состава авторов после дедлайна15 ноября. Время и часовой пояс дедлайна на этой странице не указаны. Переход на16 ноября в Москве сам по себе не доказывает закрытие приёма:23:59 Москвы соответствует20:59UTC. Пользователь показал открытые формы обновления EasyChair; это подтверждает техническую возможность правки, но не отменяет ограничения после фактического дедлайна. Если он уже наступил, изменение названия/состава нужно согласовать с организаторами. Я не менял, не отзывал и не подавал заявку, не отправлял сообщения организаторам и не создавал платных обязательств. Для исправлений текущей повторной проверки название, аннотация и ключевые слова новой статьи остались прежними.
 
 Источники регламента: https://csai.org/track3.html ; https://csai.org/submission.html ; https://csai.org/date.html . Материалы переписки и все исходные примеры сохранены в прежнем каталоге _исходники и использованы как справочные сведения, а не как самостоятельные текущие поручения.
 '''

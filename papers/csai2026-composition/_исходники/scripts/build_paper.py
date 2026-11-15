@@ -14,7 +14,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH,WD_TAB_ALIGNMENT
 from docx.enum.section import WD_SECTION_START
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from paper_content import TITLE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES,RESULTS,CHECKS
+from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES,RESULTS,CHECKS
 
 def figures():
     FIG.mkdir(exist_ok=True)
@@ -110,6 +110,9 @@ def build(authors=False):
     d._element.body.append(sec)
     for name in ['PaperTitle','PaperAuthor','PaperAffiliations','PaperParagraphs','PaperHeading']:
         st=d.styles[name];st.font.name='Times New Roman';st.font.color.rgb=RGBColor(0,0,0)
+        language=st.element.get_or_add_rPr().find(qn('w:lang'))
+        if language is None:language=OxmlElement('w:lang');st.element.get_or_add_rPr().append(language)
+        language.set(qn('w:val'),'en-GB')
     normal=d.styles['PaperParagraphs'];normal.font.size=Pt(10);normal.paragraph_format.space_after=Pt(3);normal.paragraph_format.line_spacing=1;normal.paragraph_format.widow_control=True
     d.styles['PaperTitle'].font.size=Pt(18);d.styles['PaperTitle'].font.bold=True
     d.styles['PaperHeading'].font.size=Pt(12);d.styles['PaperHeading'].font.bold=True
@@ -147,7 +150,7 @@ def build(authors=False):
         p=d.add_paragraph(f'[{i}] '+ref,'PaperParagraphs');p.paragraph_format.left_indent=Cm(.55);p.paragraph_format.first_line_indent=Cm(-.55);p.paragraph_format.space_after=Pt(5)
     p=d.sections[0].footer.paragraphs[0];p.clear();p.style=d.styles['PaperParagraphs'];p.paragraph_format.space_after=Pt(0);p.alignment=WD_ALIGN_PARAGRAPH.CENTER
     fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');r=OxmlElement('w:r');pr=OxmlElement('w:rPr');font=OxmlElement('w:rFonts');font.set(qn('w:ascii'),'Times New Roman');font.set(qn('w:hAnsi'),'Times New Roman');pr.append(font);sz=OxmlElement('w:sz');sz.set(qn('w:val'),'20');pr.append(sz);r.append(pr);t=OxmlElement('w:t');t.text='1';r.append(t);fld.append(r);p._p.append(fld)
-    cp=d.core_properties;cp.title=TITLE;cp.author='; '.join(names) if authors else '';cp.last_modified_by='';cp.subject='CSAI 2026';cp.keywords=', '.join(KEYWORDS);cp.comments='';cp.revision=1
+    cp=d.core_properties;cp.title=TITLE;cp.author='; '.join(names) if authors else '';cp.last_modified_by='';cp.subject=CONFERENCE;cp.keywords=', '.join(KEYWORDS);cp.comments='';cp.revision=1
     for rel in list(d.part.rels.values()):
         if 'comments' in rel.reltype:d.part.drop_rel(rel.rId)
     path=OUT/('CSAI2026_Composition_Authors.docx' if authors else 'CSAI2026_Composition_Anonymous.docx');d.save(path)

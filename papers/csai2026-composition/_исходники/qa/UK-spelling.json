@@ -1,0 +1,39 @@
+﻿{
+    "Dictionary":  "MSSP7EN.LEX",
+    "LanguageId":  2057,
+    "Count":  63,
+    "Words":  [
+                  "Aehlig",
+                  "asyncio",
+                  "ExtraTrees",
+                  "FastAPI",
+                  "Gulcehre",
+                  "i",
+                  "Ithemal",
+                  "its",
+                  "maxR",
+                  "MdAPE",
+                  "Merriënboer",
+                  "ms",
+                  "Puigdomènech",
+                  "PyTorch",
+                  "queues",
+                  "ReLU",
+                  "Uvicorn",
+                  "uvloop",
+                  "Veličković",
+                  "Wehenkel"
+              ],
+    "OrdinaryWordContexts":  [
+                                 {
+                                     "Word":  "its",
+                                     "StandaloneCheck":  false,
+                                     "Context":  "d computational structure can be useful for learned performance prediction, but its hardware-level throughput target differs from coroutine suspension and request "
+                                 },
+                                 {
+                                     "Word":  "queues",
+                                     "StandaloneCheck":  false,
+                                     "Context":  "ed decisions while excluding online inference cost, saturation and process-pool queues. The all-offload result is an isolation reference. It does not justify a throug"
+                                 }
+                             ]
+}

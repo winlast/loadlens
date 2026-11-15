@@ -15,7 +15,7 @@ Analysis fits the ten seeded versions of each learned method using the frozen pa
 
 ## Collect new timings
 
-The retained design is authoritative; do not run the design command over it when reproducing the reported analysis. New measurements are hardware-dependent and are not expected to be byte identical. The collectors resume existing JSONL files; use a separate copy of data/composition for a fresh collection.
+The retained design is authoritative; do not run the design command over it when reproducing the reported analysis. New measurements are hardware-dependent and are not expected to be byte identical. For a fresh collection, make a separate working copy of this entire artifact. In that copy, retain design.json in data/composition and move the existing calibration.jsonl, raw-*.jsonl, http_replay.jsonl and http_replay_idle.json into a separate backup directory. Preserve the original artifact unchanged. The collectors resume existing rows: running them against the complete retained JSONL files skips those measurements rather than collecting new timings. After fresh collection, run analysis again before replay and final verification; do not mix old predictions with new measurements.
 
 ```
 python experiments/composition/study.py collect

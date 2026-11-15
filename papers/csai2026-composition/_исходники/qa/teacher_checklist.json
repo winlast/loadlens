@@ -1,0 +1,68 @@
+{
+  "CSAI2026_Composition_Anonymous": {
+    "numbered_headings": [
+      "1 Introduction",
+      "1.1 Relation to structured performance models",
+      "2 Materials and methods",
+      "2.1 Execution domain and suspension effects",
+      "2.2 Cost composition and conditional error bound",
+      "2.3 Operations and measurement targets",
+      "2.4 Matched programs and evaluation partitions",
+      "2.5 Predictors and information controls",
+      "2.6 Transfer checks and HTTP policy replay",
+      "3 Results",
+      "3.1 Matched operations require execution relations",
+      "3.2 Generalisation from short to longer compositions",
+      "3.3 Effects matter more than a complex node regressor",
+      "3.4 Consequences for neighbouring HTTP requests",
+      "4 Discussion",
+      "5 Conclusion",
+      "6 References"
+    ],
+    "caption_sentences": [
+      "Fig. 1 The same computation nodes form different uninterrupted regions when suspension is moved or replaced by an immediate cache hit.",
+      "Fig. 2 Median relative error by held-out composition length shows the different behaviour of structural and learned aggregation."
+    ],
+    "empty_or_merged_table_cells": false,
+    "all_tables_figures_equations_referenced": true,
+    "UK_English_styles": true,
+    "references_Roman": true,
+    "encrypted": false,
+    "minimum_figure_dpi": 199.70222652944219,
+    "last_page_text_bottom_pt": 767.391357421875,
+    "pages": 6
+  },
+  "CSAI2026_Composition_Authors": {
+    "numbered_headings": [
+      "1 Introduction",
+      "1.1 Relation to structured performance models",
+      "2 Materials and methods",
+      "2.1 Execution domain and suspension effects",
+      "2.2 Cost composition and conditional error bound",
+      "2.3 Operations and measurement targets",
+      "2.4 Matched programs and evaluation partitions",
+      "2.5 Predictors and information controls",
+      "2.6 Transfer checks and HTTP policy replay",
+      "3 Results",
+      "3.1 Matched operations require execution relations",
+      "3.2 Generalisation from short to longer compositions",
+      "3.3 Effects matter more than a complex node regressor",
+      "3.4 Consequences for neighbouring HTTP requests",
+      "4 Discussion",
+      "5 Conclusion",
+      "6 References"
+    ],
+    "caption_sentences": [
+      "Fig. 1 The same computation nodes form different uninterrupted regions when suspension is moved or replaced by an immediate cache hit.",
+      "Fig. 2 Median relative error by held-out composition length shows the different behaviour of structural and learned aggregation."
+    ],
+    "empty_or_merged_table_cells": false,
+    "all_tables_figures_equations_referenced": true,
+    "UK_English_styles": true,
+    "references_Roman": true,
+    "encrypted": false,
+    "minimum_figure_dpi": 199.70226013533753,
+    "last_page_text_bottom_pt": 767.391357421875,
+    "pages": 6
+  }
+}
