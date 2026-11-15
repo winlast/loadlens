@@ -18,7 +18,7 @@ report={'documents':{},'similarity':{},'reproduction':{}}
 check(len(ABSTRACT.split())<=200,'abstract length');check(len(KEYWORDS)<=5,'keywords')
 template=BASE.parent/'IET-Template.docx';check(digest(template)=='5c47aa829c833b784e253c3491dd51586cebee956d5d5c9b5434d49eabf4929f','reference preserved')
 identities=re.compile(r'sinyav|letunov|galyuk|teplits|sanina|babichev|ssd-tula|winlast|bauman',re.I)
-for author,qa in [(False,'anonymous-final2'),(True,'authors-final2')]:
+for author,qa in [(False,'anonymous-with-label'),(True,'authors-final2')]:
     stem='CSAI2026_Composition_'+('Authors' if author else 'Anonymous');path=OUT/(stem+'.docx');d=Document(path)
     check(len(d.sections)==2,'two sections')
     for s in d.sections:
@@ -27,6 +27,7 @@ for author,qa in [(False,'anonymous-final2'),(True,'authors-final2')]:
     check(d.styles['PaperParagraphs'].font.size.pt==10,'body size');check(d.styles['PaperTitle'].font.size.pt==18,'title size')
     check(len(d.tables)==5,'table count');check(len(d.inline_shapes)==2,'figure count')
     body='\n'.join(p.text for p in d.paragraphs)
+    if not author:check(body.count('Anonymous authors')==1,'anonymous author label')
     check('@' not in body if not author else True,'markup removed')
     check(re.search(r'\d (?:ms|µs|cm|mm|pt)\b',body) is None,'number unit nonbreaking space')
     citations=[int(x) for x in re.findall(r'\[(\d+)\]',body.split('6 References')[0])];check(list(dict.fromkeys(citations))==list(range(1,10)),'citation order')
@@ -42,7 +43,8 @@ for author,qa in [(False,'anonymous-final2'),(True,'authors-final2')]:
     source=BASE.parent/'qa'/qa/(stem+'.pdf');reader=PdfReader(source);writer=PdfWriter();writer.clone_document_from_reader(reader);writer.pdf_header='%PDF-1.4';writer._root_object.pop(NameObject('/Version'),None)
     writer.add_metadata({'/Title':TITLE,'/Author':d.core_properties.author or '', '/Creator':'Microsoft Word','/Subject':'CSAI 2026','/Keywords':', '.join(KEYWORDS)})
     final=OUT/(stem+'.pdf')
-    with final.open('wb') as f:writer.write(f)
+    if not (author and '--anonymous-only' in sys.argv):
+        with final.open('wb') as f:writer.write(f)
     pdf=pymupdf.open(final);original=pymupdf.open(source);check(len(pdf)==6,'six pages')
     check(final.read_bytes().startswith(b'%PDF-1.4'),'PDF version')
     fonts={};unit_starts=[]

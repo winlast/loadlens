@@ -124,6 +124,8 @@ def build(authors=False):
         for i,n in enumerate(names):run(p,(', ' if i else '')+n);run(p,'1*' if i==0 else '1',superscript=True)
         p=d.add_paragraph(style='PaperAffiliations');p.paragraph_format.space_after=Pt(4);run(p,'1',superscript=True);run(p,'Department of Information Processing and Control Systems, Bauman Moscow State Technical University, Moscow, Russia')
         p=d.add_paragraph('*ssd-tula@mail.ru','PaperAffiliations');p.paragraph_format.space_after=Pt(10)
+    else:
+        p=d.add_paragraph('Anonymous authors','PaperAuthor');p.paragraph_format.space_after=Pt(6);p.paragraph_format.keep_with_next=True
     p=d.add_paragraph(style='PaperParagraphs');run(p,'Keywords: ',bold=True);run(p,', '.join(KEYWORDS))
     p=d.add_paragraph('Abstract','PaperHeading');p.paragraph_format.space_before=Pt(4);p.paragraph_format.space_after=Pt(6)
     inline(d.add_paragraph(style='PaperParagraphs'),ABSTRACT)

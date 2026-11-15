@@ -5,11 +5,12 @@
       "fonts_embedded": {
         "BCDEEE+TimesNewRomanPSMT": 115680,
         "BCDFEE+TimesNewRomanPS-BoldMT": 86836,
-        "BCDGEE+TimesNewRomanPS-ItalicMT": 81628,
-        "BCDHEE+TimesNewRomanPSMT": 115680
+        "BCDGEE+TimesNewRomanPS-BoldItalicMT": 52624,
+        "BCDHEE+TimesNewRomanPS-ItalicMT": 81628,
+        "BCDIEE+TimesNewRomanPSMT": 115680
       },
-      "docx_sha256": "700d11e641be4268cb1a9bd8251fb1bbf33287779300b19d1feb8957c5ea7ed2",
-      "pdf_sha256": "312dc14d7d75bac2202a14f6639db1785ae19eb78a969331a13b333e6ab6a578",
+      "docx_sha256": "ec7ca45f6da6d7b26082f1c4faaa5f62d62e3fa90d8ccd507096d488c0fe252f",
+      "pdf_sha256": "f1ef9045d50de86bfdfe8d5f292ea2be6db2a609ef92fe1c937c4b4bed178f88",
       "changed_template_parts": [
         "[Content_Types].xml",
         "word/document.xml",
@@ -60,5 +61,5 @@
     "tolerance": 1e-10,
     "note": "Parallel tree-ensemble accumulation differs at floating-point roundoff; all neural, recurrent and analytic predictions are identical."
   },
-  "assertions": 17815
+  "assertions": 17820
 }

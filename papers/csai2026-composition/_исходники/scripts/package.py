@@ -112,6 +112,8 @@ report='''# Проверка новой статьи и сравнение с п
 
 Источники регламента: https://csai.org/track3.html ; https://csai.org/submission.html ; https://csai.org/date.html . Материалы переписки и все исходные примеры сохранены в прежнем каталоге _исходники и использованы как справочные сведения, а не как самостоятельные текущие поручения.
 '''
+report=report.replace('Необязательные старые фразы Affiliations withheld и Correspondence withheld убраны.','Под названием стоит нейтральная строка Anonymous authors; фразы Affiliations withheld и Correspondence withheld убраны.')
+report=report.replace('17815',str(json.loads((BASE.parent/'qa/final_checks.json').read_text(encoding='utf8'))['assertions']))
 (OUT/'Проверка_и_сравнение_новой_версии.md').write_text(report,encoding='utf8')
 # A self-contained anonymous research artifact. Never include author copy or private chat exports.
 files={}
