@@ -1,0 +1,64 @@
+{
+  "documents": {
+    "CSAI2026_Composition_Anonymous": {
+      "pages": 6,
+      "fonts_embedded": {
+        "BCDEEE+TimesNewRomanPSMT": 115680,
+        "BCDFEE+TimesNewRomanPS-BoldMT": 86836,
+        "BCDGEE+TimesNewRomanPS-ItalicMT": 81628,
+        "BCDHEE+TimesNewRomanPSMT": 115680
+      },
+      "docx_sha256": "700d11e641be4268cb1a9bd8251fb1bbf33287779300b19d1feb8957c5ea7ed2",
+      "pdf_sha256": "312dc14d7d75bac2202a14f6639db1785ae19eb78a969331a13b333e6ab6a578",
+      "changed_template_parts": [
+        "[Content_Types].xml",
+        "word/document.xml",
+        "word/_rels/document.xml.rels",
+        "word/footer1.xml",
+        "word/styles.xml",
+        "docProps/core.xml"
+      ],
+      "missing_template_parts": []
+    },
+    "CSAI2026_Composition_Authors": {
+      "pages": 6,
+      "fonts_embedded": {
+        "BCDEEE+TimesNewRomanPSMT": 115680,
+        "BCDFEE+TimesNewRomanPS-BoldMT": 86836,
+        "BCDGEE+TimesNewRomanPS-BoldItalicMT": 67388,
+        "BCDHEE+TimesNewRomanPS-ItalicMT": 87608,
+        "BCDIEE+TimesNewRomanPSMT": 115680
+      },
+      "docx_sha256": "084819f5852905c7268a72523e5ccc49e00abf8ab9e62b503b363d628184ea88",
+      "pdf_sha256": "a5911aef2de2ba9dbb6f2ce5dadff42141fea1f16ce970d0dda2da8f2b1c1f17",
+      "changed_template_parts": [
+        "[Content_Types].xml",
+        "word/document.xml",
+        "word/_rels/document.xml.rels",
+        "word/footer1.xml",
+        "word/styles.xml",
+        "docProps/core.xml"
+      ],
+      "missing_template_parts": []
+    }
+  },
+  "similarity": {
+    "Sinyavskiy_ISCT.txt": {
+      "shared_fivegrams": 0,
+      "new_fivegrams": 4087,
+      "share_pct": 0.0
+    },
+    "Синявский_статья_РИНЦ_ИИАСУ.txt": {
+      "shared_fivegrams": 0,
+      "new_fivegrams": 4087,
+      "share_pct": 0.0
+    }
+  },
+  "reproduction": {
+    "results_max_absolute_difference": 1.2789769243681803e-13,
+    "predictions_max_absolute_difference_ms": 1.7763568394002505e-14,
+    "tolerance": 1e-10,
+    "note": "Parallel tree-ensemble accumulation differs at floating-point roundoff; all neural, recurrent and analytic predictions are identical."
+  },
+  "assertions": 17815
+}

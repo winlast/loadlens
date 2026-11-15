@@ -1,0 +1,32 @@
+Title
+Effect Aware Composition of Learned Costs for Event Loop Blocking Prediction
+
+Abstract
+Predicting a request's total work is insufficient to predict how long it can block an event loop. The same operations can form one uninterrupted region or several regions separated by suspension, while an awaited cache hit may not suspend at all. We model a request as an effect-annotated execution path, learn individual operation costs and compose them using sums within uninterrupted regions and a maximum across regions. A controlled benchmark contains 640 program variants (584 distinct paths) from 160 operation families, 6,400 executions across three loop and transport conditions, and 960 separate HTTP policy replays. Training compositions contain two or three blocking operations; longer tests contain four, six or eight. On the longer primary test, neural cost composition achieves 6.7% median absolute percentage error, compared with 16.9% for an order-aware recurrent model and 34.4% for an unordered tree ensemble. The recurrent model is more accurate on short tests, and parametric cost composition remains competitive. In HTTP replay, offloading 37.5% of programs reduces the 90th percentile of per-program maximum probe response times from 50.3 to 16.1 ms. The results identify suspension semantics as an explicit, testable source of compositional generalisation under controlled single-host conditions.
+
+Keywords — one per line
+neuro symbolic models
+execution graphs
+cost prediction
+compositional generalisation
+event loops
+
+Affiliation
+Bauman Moscow State Technical University
+
+Country/region
+Russia
+
+Corresponding author
+Stanislav Sinyavskiy — ssd-tula@mail.ru
+
+Coauthors
+Artemiy Letunovskiy
+Stanislava Galyuk
+Kirill Teplitskiy
+Anastasia Sanina
+Alexander Babichev
+
+Other coauthor emails were not supplied. Use personal addresses if available; do not substitute the corresponding author email for them. Preferred Latin spelling needs confirmation by the respective coauthors.
+
+Upload the Anonymous PDF for double-blind review. These fields describe the NEW manuscript, not the earlier provenance paper. The official conference page restricts title/author changes after the deadline; an unlocked form does not by itself waive that restriction.
