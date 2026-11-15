@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "independent_assertions": 1768,
+  "source_records": 540,
+  "split_manifests": 60,
+  "predictor_runs": 180,
+  "prediction_rows": 22977,
+  "malformed_graph_tests": 4,
+  "numerical_tolerance": "absolute 0.0003, relative 0.00001",
+  "limitations": "Verifies archived predictions and aggregates; does not independently recollect runtime measurements."
+}

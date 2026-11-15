@@ -1,0 +1,55 @@
+{
+  "n_rows": 540,
+  "n_configurations": 304,
+  "n_engine_configurations": 353,
+  "graph_nodes": 854,
+  "graph_edges": 1924,
+  "sources": {
+    "cost_samples.json": "3d3e8f5bd8313f81d1f1578dc315403e10cde70e6000d9b0d22f89942a91f5d6",
+    "cost_samples_holdout.json": "536761bf225835c1987114c0a82098ec1549a72bd84f69ce1a89a432a7929b7e"
+  },
+  "original_train": 384,
+  "original_test": 156,
+  "configuration_overlap": {
+    "shared_keys": 30,
+    "overlapping_test_rows": 69
+  },
+  "engine_configuration_overlap": {
+    "shared_keys": 24,
+    "overlapping_test_rows": 55
+  },
+  "modelled_rows": 450,
+  "modelled_configurations": 303,
+  "protocol_support": {
+    "row": {
+      "median_inside_support_pct": 95.0,
+      "range": [
+        90.0,
+        99.28571428571429
+      ]
+    },
+    "group": {
+      "median_inside_support_pct": 90.93892768996481,
+      "range": [
+        71.14093959731544,
+        96.21212121212122
+      ]
+    },
+    "extrapolation": {
+      "median_inside_support_pct": 0.0,
+      "range": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "torch": "2.13.0+cu130",
+    "numpy": "1.26.0",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "epochs": 400,
+    "seeds": 20,
+    "elapsed_s": 11.582906246185303
+  }
+}
