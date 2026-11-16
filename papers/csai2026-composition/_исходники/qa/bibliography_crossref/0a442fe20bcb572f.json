@@ -1,0 +1,857 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        9,
+        26
+      ]
+    ],
+    "date-time": "2026-09-26T11:59:35Z",
+    "timestamp": 1790423975644,
+    "version": "4.1.0"
+  },
+  "reference-count": 110,
+  "publisher": "Association for Computing Machinery (ACM)",
+  "issue": "OOPSLA1",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2026,
+            4,
+            10
+          ]
+        ],
+        "date-time": "2026-04-10T00:00:00Z",
+        "timestamp": 1775779200000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+    }
+  ],
+  "content-domain": {
+    "domain": [
+      "dl.acm.org"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [
+    "Proc. ACM Program. Lang."
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        10
+      ]
+    ]
+  },
+  "abstract": "<jats:p>There exist many techniques for automatically deriving parametric resource (or cost) bounds by analyzing the source code of a program. These techniques work effectively for a large class of programs and language features. However, non-local transfer of control as needed for exception or effect handlers has remained a challenge. This paper presents the first automatic resource bound analysis that supports non-local control transfer between exceptions or effects and their handlers. The analysis is an extension of type-based automatic amortized resource analysis (AARA), which automates the potential method of amortized analysis. It is presented for a simple functional language with lists and linear potential functions. However, the ideas are directly applicable to richer settings and implemented for Standard ML and polynomial potential functions. Apart from the new type system for exceptions and effects, a main contribution is a novel syntactic type-soundness theorem that establishes the correctness of the derived bounds with respect to a stack-based abstract machine. An experimental evaluation shows that the new analysis is capable of analyzing programs that cannot be analyzed by existing methods and that the efficiency overhead of supporting exception and effect handlers is low.</jats:p>",
+  "DOI": "10.1145/3798207",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        10
+      ]
+    ],
+    "date-time": "2026-04-10T14:33:43Z",
+    "timestamp": 1775831623000
+  },
+  "page": "201-230",
+  "update-policy": "https://doi.org/10.1145/crossmark-policy",
+  "source": "Crossref",
+  "is-referenced-by-count": 0,
+  "title": [
+    "Handling Exceptions and Effects with Automatic Resource Analysis"
+  ],
+  "prefix": "10.1145",
+  "volume": "10",
+  "author": [
+    {
+      "ORCID": "https://orcid.org/0009-0005-6041-0313",
+      "authenticated-orcid": false,
+      "given": "Ethan",
+      "family": "Chu",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0009-0004-3869-4404",
+      "authenticated-orcid": false,
+      "given": "Yiyang",
+      "family": "Guo",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0001-8326-0788",
+      "authenticated-orcid": false,
+      "given": "Jan",
+      "family": "Hoffmann",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "320",
+  "published-online": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        10
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_3_2_2_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.4230/LIPIcs.FSCD.2019.1"
+    },
+    {
+      "key": "e_1_3_2_3_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Elvira Albert Puri Arenas Samir Genaim and Germán Puebla. 2008. Automatic Inference of Upper Bounds for Recurrence Relations in Cost Analysis. In 15th Static Analysis Symp. (SAS’08). 221–237.",
+      "DOI": "10.1007/978-3-540-69166-2_15"
+    },
+    {
+      "key": "e_1_3_2_4_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Elvira Albert Puri Arenas Samir Genaim and Germán Puebla. 2011. Closed-Form Upper Bounds in Static Cost Analysis. Journal of Automated Reasoning (2011) 161–203.",
+      "DOI": "10.1007/s10817-010-9174-1"
+    },
+    {
+      "key": "e_1_3_2_5_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Elvira Albert Puri Arenas Samir Genaim Germán Puebla and Damiano Zanardini. 2007. Cost Analysis of Java Bytecode. In 16th Euro. Symp. on Prog. (ESOP’07).",
+      "DOI": "10.1007/978-3-540-71316-6_12"
+    },
+    {
+      "key": "e_1_3_2_6_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.tcs.2011.07.009"
+    },
+    {
+      "key": "e_1_3_2_7_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/J.JSS.2021.110923"
+    },
+    {
+      "key": "e_1_3_2_8_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Elvira Albert Jesús Correas Fernández and Guillermo Román-Díez. 2015. Non-cumulative Resource Analysis. In Tools and Algorithms for the Construction and Analysis of Systems - 21st International Conference (TACAS’15).",
+      "DOI": "10.1007/978-3-662-46681-0_6"
+    },
+    {
+      "key": "e_1_3_2_9_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2499937.2499943"
+    },
+    {
+      "key": "e_1_3_2_10_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Robert Atkey. 2010. Amortised Resource Analysis with Separation Logic. In 19th Euro. Symp. on Prog. (ESOP’10).",
+      "DOI": "10.1007/978-3-642-11957-6_6"
+    },
+    {
+      "key": "e_1_3_2_11_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3110287"
+    },
+    {
+      "key": "e_1_3_2_12_2",
+      "unstructured": "Martin Avanzini Ugo Dal Lago and Georg Moser. 2012. Analysing the Complexity of Functional Programs: Higher-Order Meets First-Order. In 29th Int. Conf. on Functional Programming (ICFP’15)."
+    },
+    {
+      "key": "e_1_3_2_13_2",
+      "unstructured": "Martin Avanzini and Georg Moser. 2013. A Combination Framework for Complexity. In 24th International Conference on Rewriting Techniques and Applications (RTA’13)."
+    },
+    {
+      "key": "e_1_3_2_14_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3428240"
+    },
+    {
+      "key": "e_1_3_2_15_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/CBO9781139172752"
+    },
+    {
+      "key": "e_1_3_2_16_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/J.JLAMP.2014.02.001"
+    },
+    {
+      "key": "e_1_3_2_17_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Régis Blanc Thomas A. Henzinger Thibaud Hottelier and Laura Kovács. 2010. ABC: Algebraic Bound Computation for Loops. In Logic for Prog. AI. and Reasoning - 16th Int. Conf. (LPAR’10).",
+      "DOI": "10.1007/978-3-642-17511-4_7"
+    },
+    {
+      "key": "e_1_3_2_18_2",
+      "volume-title": "Technical Report CMU-CS-95-170",
+      "author": "Blelloch Guy E.",
+      "year": "1995",
+      "unstructured": "Guy E. Blelloch. 1995. NESL: A Nested Data-Parallel Language (Version 3.1). Technical Report CMU-CS-95-170. CMU."
+    },
+    {
+      "key": "e_1_3_2_19_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Guy E. Blelloch and John Greiner. 1996. A Provable Time and Space Efficient Implementation of NESL. In 1st Int. Conf. on Funct. Prog. (ICFP’96).",
+      "DOI": "10.1145/232627.232650"
+    },
+    {
+      "key": "e_1_3_2_20_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Marc Brockschmidt Fabian Emmes Stephan Falke Carsten Fuhs and Jürgen Giesl. 2014. Alternating Runtime and Size Complexity Analysis of Integer Programs. In 20th Int. Conf. on Tools and Alg. for the Constr. and Anal. of Systems (TACAS’14).",
+      "DOI": "10.1007/978-3-642-54862-8_10"
+    },
+    {
+      "key": "e_1_3_2_21_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Quentin Carbonneaux Jan Hoffmann Tahina Ramananandro and Zhong Shao. 2014. End-to-End Verification of Stack-Space Bounds for C Programs. In 35th Conference on Programming Language Design and Implementation (PLDI’14). doi:10.1145/2594291.2594301 Artifact submitted and approved.",
+      "DOI": "10.1145/2594291.2594301"
+    },
+    {
+      "key": "e_1_3_2_22_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Quentin Carbonneaux Jan Hoffmann and Zhong Shao. 2015. Compositional Certified Resource Bounds. In 36th Conference on Programming Language Design and Implementation (PLDI’15). doi:10.1145/2737924.2737955 Artifact submitted and approved.",
+      "DOI": "10.1145/2737924.2737955"
+    },
+    {
+      "key": "e_1_3_2_23_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s10817-017-9431-7"
+    },
+    {
+      "key": "e_1_3_2_24_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Krishnendu Chatterjee Hongfei Fu and Amir Kafshdar Goharshady. 2017. Non-polynomial Worst-Case Analysis of Recursive Programs. In Computer Aided Verification - 29th Int. Conf. (CAV’17).",
+      "DOI": "10.1007/978-3-319-63390-9_3"
+    },
+    {
+      "key": "e_1_3_2_25_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3649824"
+    },
+    {
+      "key": "e_1_3_2_26_2",
+      "volume-title": "Master’s thesis",
+      "author": "Chu Ethan",
+      "year": "2023",
+      "unstructured": "Ethan Chu. 2023. The Theory and Implementation of Resource Aware ML 2. Master’s thesis. Carnegie Mellon University. http://reports-archive.adm.cs.cmu.edu/anon/2023/CMU-CS-23-140.pdf"
+    },
+    {
+      "key": "e_1_3_2_27_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Ethan Chu Jan Hoffmann and Yiyang Guo. 2026. Artifact for \"Handling Exceptions and Effects with Automatic Resource Analysis\". doi:10.5281/zenodo.18742777",
+      "DOI": "10.5281/zenodo.18742777"
+    },
+    {
+      "key": "e_1_3_2_28_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Ezgi Çiçek Deepak Garg and Umut A. Acar. 2015. Refinement Types for Incremental Computational Complexity. In 24th European Symposium on Programming (ESOP’15).",
+      "DOI": "10.1007/978-3-662-46669-8_17"
+    },
+    {
+      "key": "e_1_3_2_29_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Karl Crary and Stephanie Weirich. 2000. Resource Bound Certification. In 27th ACM Symp. on Principles of Prog. Langs. (POPL’00). 184–198.",
+      "DOI": "10.1145/325694.325716"
+    },
+    {
+      "key": "e_1_3_2_30_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3408979"
+    },
+    {
+      "key": "e_1_3_2_31_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/11780342_11"
+    },
+    {
+      "key": "e_1_3_2_32_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Nils Anders Danielsson. 2008. Lightweight Semiformal Time Complexity Analysis for Purely Functional Data Structures. In 35th ACM Symp. on Principles Prog. Langs. (POPL’08).",
+      "DOI": "10.1145/1328438.1328457"
+    },
+    {
+      "key": "e_1_3_2_33_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/S095679682200003X"
+    },
+    {
+      "key": "e_1_3_2_34_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Ankush Das Stephanie Balzer Jan Hoffmann Frank Pfenning and Ishani Santurkar. 2021. Resource-Aware Session Types for Digital Contracts. In 2021 IEEE Computer Security Foundations Symposium (CSF’21). doi:10.1109/CSF51468.2021.00004",
+      "DOI": "10.1109/CSF51468.2021.00004"
+    },
+    {
+      "key": "e_1_3_2_35_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/382780.382785"
+    },
+    {
+      "key": "e_1_3_2_36_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3434314"
+    },
+    {
+      "key": "e_1_3_2_37_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-031-30044-8_9"
+    },
+    {
+      "key": "e_1_3_2_38_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/3-540-58485-4_45"
+    },
+    {
+      "key": "e_1_3_2_39_2",
+      "unstructured": "Inc. Facebook. 2024. Infer Website - Cost: Runtime Complexity Analysis. https://fbinfer.com/docs/checker-cost."
+    },
+    {
+      "key": "e_1_3_2_40_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/73560.73576"
+    },
+    {
+      "key": "e_1_3_2_41_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Antonio Flores-Montoya and Reiner Hähnle. 2014. Resource Analysis of Complex Programs with Cost Equations. In Programming Languages and Systems - 12th Asian Symposiu (APLAS’14).",
+      "DOI": "10.1007/978-3-319-12736-1_15"
+    },
+    {
+      "key": "e_1_3_2_42_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Florian Frohn M. Naaf Jera Hensel Marc Brockschmidt and Jürgen Giesl. 2016. Lower Runtime Bounds for Integer Programs. In Automated Reasoning - 8th International Joint Conference (IJCAR’16).",
+      "DOI": "10.1007/978-3-319-40229-1_37"
+    },
+    {
+      "key": "e_1_3_2_43_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-25979-4_15"
+    },
+    {
+      "key": "e_1_3_2_44_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Bernd Grobauer. 2001. Cost Recurrences for DML Programs. In 6th Int. Conf. on Funct. Prog. (ICFP’01). 253–264.",
+      "DOI": "10.1145/507635.507666"
+    },
+    {
+      "key": "e_1_3_2_45_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3632852"
+    },
+    {
+      "key": "e_1_3_2_46_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jessie Grosen David Kahn and Jan Hoffmann. 2023. Automatic Amortized Resource Analysis with Regular Recursive Types. In 38th ACM/IEEE Symposium on Logic in Computer Science (LICS’ 23).",
+      "DOI": "10.1109/LICS56636.2023.10175720"
+    },
+    {
+      "key": "e_1_3_2_47_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Sumit Gulwani Sagar Jain and Eric Koskinen. 2009. Control-Flow Refinement and Progress Invariants for Bound Analysis. In Conf. on Prog. Lang. Design and Impl. (PLDI’09).",
+      "DOI": "10.1145/1542476.1542518"
+    },
+    {
+      "key": "e_1_3_2_48_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Sumit Gulwani Krishna K. Mehra and Trishul M. Chilimbi. 2009. SPEED: Precise and Efficient Static Estimation of Program Computational Complexity. In 36th ACM Symp. on Principles of Prog. Langs. (POPL’09).",
+      "DOI": "10.1145/1480881.1480898"
+    },
+    {
+      "key": "e_1_3_2_49_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Sumit Gulwani and Florian Zuleger. 2010. The Reachability-Bound Problem. In Conf. on Prog. Lang. Design and Impl. (PLDI’10).",
+      "DOI": "10.1145/1806596.1806630"
+    },
+    {
+      "key": "e_1_3_2_50_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3371092"
+    },
+    {
+      "key": "e_1_3_2_51_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.5555/2431407"
+    },
+    {
+      "key": "e_1_3_2_52_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/S0956796824000030"
+    },
+    {
+      "key": "e_1_3_2_53_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Nao Hirokawa and Georg Moser. 2014. Automated Complexity Analysis Based on Context-Sensitive Rewriting. In Rewriting and Typed Lambda Calculi (RTA-TLCA’14).",
+      "DOI": "10.1007/978-3-319-08918-8_18"
+    },
+    {
+      "key": "e_1_3_2_54_2",
+      "volume-title": "Ph. D. Dissertation",
+      "author": "Hoffmann Jan",
+      "year": "2011",
+      "unstructured": "Jan Hoffmann. 2011. Types with Potential: Polynomial Resource Bounds via Automatic Amortized Analysis. Ph. D. Dissertation. Ludwig-Maximilians-Universität München."
+    },
+    {
+      "key": "e_1_3_2_55_2",
+      "unstructured": "Jan Hoffmann. 2024. RAML Web Site. http://raml.co/."
+    },
+    {
+      "key": "e_1_3_2_56_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jan Hoffmann Klaus Aehlig and Martin Hofmann. 2011. Multivariate Amortized Resource Analysis. In 38th Symposium on Principles of Programming Languages (POPL’11).",
+      "DOI": "10.1145/1926385.1926427"
+    },
+    {
+      "key": "e_1_3_2_57_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jan Hoffmann Klaus Aehlig and Martin Hofmann. 2012. Multivariate Amortized Resource Analysis. ACM Trans. Program. Lang. Syst. (2012).",
+      "DOI": "10.1145/2362389.2362393"
+    },
+    {
+      "key": "e_1_3_2_58_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jan Hoffmann Klaus Aehlig and Martin Hofmann. 2012. Resource Aware ML. In 24rd International Conference on Computer Aided Verification (CAV’12).",
+      "DOI": "10.1007/978-3-642-31424-7_64"
+    },
+    {
+      "key": "e_1_3_2_59_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jan Hoffmann Ankush Das and Shu-Chun Weng. 2017. Towards Automatic Resource Bound Analysis for OCaml. In 44th Symposium on Principles of Programming Languages (POPL’17).",
+      "DOI": "10.1145/3009837.3009842"
+    },
+    {
+      "key": "e_1_3_2_60_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Jan Hoffmann and Steffen Jost. 2022. Two Decades of Automatic Amortized Resource Analysis. Math. Struct. Comput. Sci. (2022).",
+      "DOI": "10.1017/S0960129521000487"
+    },
+    {
+      "key": "e_1_3_2_61_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Jan Hoffmann and Zhong Shao. 2015. Automatic Static Cost Analysis for Parallel Programs. In 24th European Symposium on Programming (ESOP’15). doi:10.1007/978-3-662-46669-8_6",
+      "DOI": "10.1007/978-3-662-46669-8_6"
+    },
+    {
+      "key": "e_1_3_2_62_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Martin Hofmann and Steffen Jost. 2003. Static Prediction of Heap Space Usage for First-Order Functional Programs. In 30th ACM Symp. on Principles of Prog. Langs. (POPL’03).",
+      "DOI": "10.1145/604131.604148"
+    },
+    {
+      "key": "e_1_3_2_63_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/S0960129521000232"
+    },
+    {
+      "key": "e_1_3_2_64_2",
+      "first-page": "567",
+      "volume-title": "19th USENIX Symposium on Networked Systems Design and Implementation (NSDI 22)",
+      "author": "Iyer Rishabh",
+      "year": "2022",
+      "unstructured": "Rishabh Iyer, Katerina Argyraki, and George Candea. 2022. Performance Interfaces for Network Functions. In 19th USENIX Symposium on Networked Systems Design and Implementation (NSDI 22). USENIX Association, Renton, WA, 567–584. https://www.usenix.org/conference/nsdi22/presentation/iyer"
+    },
+    {
+      "key": "e_1_3_2_65_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Steffen Jost Kevin Hammond Hans-Wolfgang Loidl and Martin Hofmann. 2010. Static Determination of Quantitative Resource Usage for Higher-Order Programs. In 37th ACM Symp. on Principles of Prog. Langs. (POPL’10).",
+      "DOI": "10.1145/1706299.1706327"
+    },
+    {
+      "key": "e_1_3_2_66_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Steffen Jost Hans-Wolfgang Loidl Kevin Hammond Norman Scaife and Martin Hofmann. 2009. Carbon Credits for Resource-Bounded Computations using Amortised Analysis. In 16th Symp. on Form. Meth. (FM’09).",
+      "DOI": "10.1007/978-3-642-05089-3_23"
+    },
+    {
+      "key": "e_1_3_2_67_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s10817-016-9398-9"
+    },
+    {
+      "key": "e_1_3_2_68_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "David Kahn and Jan Hoffmann. 2020. Exponential Automatic Amortized Resource Analysis. In 23rd International Conference on Foundations of Software Science and Computation Structures (FoSSaCS’20).",
+      "DOI": "10.1007/978-3-030-45231-5_19"
+    },
+    {
+      "key": "e_1_3_2_69_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "David Kahn and Jan Hoffmann. 2021. Automatic Resource Analysis with the Quantum Physicist’s Method. In 26th International Conference on Functional Programming (ICFP’21). doi:10.1145/3473581",
+      "DOI": "10.1145/3473581"
+    },
+    {
+      "key": "e_1_3_2_70_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2500365.2500590"
+    },
+    {
+      "key": "e_1_3_2_71_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3633280"
+    },
+    {
+      "key": "e_1_3_2_72_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Zachary Kincaid Jason Breck Ashkan Forouhi Boroujeni and Thomas Reps. 2017. Compositional Recurrence Analysis Revisited. In Conference on Programming Language Design and Implementation (PLDI’17).",
+      "DOI": "10.1145/3062341.3062373"
+    },
+    {
+      "key": "e_1_3_2_73_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3158142"
+    },
+    {
+      "key": "e_1_3_2_74_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-73228-0_17"
+    },
+    {
+      "key": "e_1_3_2_75_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-45260-5_2"
+    },
+    {
+      "key": "e_1_3_2_76_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Tristan Knoth Di Wang Jan Hoffmann and Nadia Polikarpova. 2019. Resource-Guided Program Synthesis. In 40th Conference on Programming Language Design and Implementation (PLDI’19).",
+      "DOI": "10.1145/3314221.3314602"
+    },
+    {
+      "key": "e_1_3_2_77_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Tristan Knoth Di Wang Adam Reynolds Nadia Polikarpova and Jan Hoffmann. 2020. Liquid Resource Types. In 25th International Conference on Functional Programming (ICFP’20). doi:10.1145/3408988",
+      "DOI": "10.1145/3408988"
+    },
+    {
+      "key": "e_1_3_2_78_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Ugo Dal Lago and Marco Gaboardi. 2011. Linear Dependent Types and Relative Completeness. In 26th IEEE Symp. on Logic in Computer Science (LICS’11).",
+      "DOI": "10.1109/LICS.2011.22"
+    },
+    {
+      "key": "e_1_3_2_79_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-45221-5_19"
+    },
+    {
+      "key": "e_1_3_2_80_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Ugo Dal Lago and Barbara Petit. 2013. The Geometry of Types. In 40th ACM Symp. on Principles Prog. Langs. (POPL’13).",
+      "DOI": "10.1145/2429069.2429090"
+    },
+    {
+      "key": "e_1_3_2_81_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S0890-5401(03)00088-9"
+    },
+    {
+      "key": "e_1_3_2_82_2",
+      "unstructured": "Benjamin Lichtman and Jan Hoffmann. 2017. Arrays and References in Resource Aware ML. In 2nd International Conference on Formal Structures for Computation and Deduction (FSCD’17)."
+    },
+    {
+      "key": "e_1_3_2_83_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-17184-1_1"
+    },
+    {
+      "key": "e_1_3_2_84_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3622831"
+    },
+    {
+      "key": "e_1_3_2_85_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Stefan Muller and Jan Hoffmann. 2024. Modeling and Analyzing Evaluation Cost of CUDA Kernels. ACM Transactions on Parallel Computing (2024). doi:10.1145/3639403",
+      "DOI": "10.1145/3639403"
+    },
+    {
+      "key": "e_1_3_2_86_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Van Chan Ngo Quentin Carbonneaux and Jan Hoffmann. 2018. Bounded Expectations: Resource Analysis for Probabilistic Programs. In 39th Conference on Programming Language Design and Implementation (PLDI’18). doi:10.1145/3192366.3192394",
+      "DOI": "10.1145/3192366.3192394"
+    },
+    {
+      "key": "e_1_3_2_87_2",
+      "unstructured": "Van Chan Ngo Mario Dehesa-Azuara Matthew Fredrikson and Jan Hoffmann. 2017. Verifying and Synthesizing Constant-Resource Implementations with Types. In 38th IEEE Symposium on Security and Privacy (S&P ’17)."
+    },
+    {
+      "key": "e_1_3_2_88_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Yue Niu and Robert Harper. 2023. A Metalanguage for Cost-Aware Denotational Semantics. In LICS. 1–14. doi:10.1109/LICS56636.2023.10175777",
+      "DOI": "10.1109/LICS56636.2023.10175777"
+    },
+    {
+      "key": "e_1_3_2_89_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3498670"
+    },
+    {
+      "key": "e_1_3_2_90_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s10817-013-9277-6"
+    },
+    {
+      "key": "e_1_3_2_91_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-00590-9_7"
+    },
+    {
+      "key": "e_1_3_2_92_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Vineet Rajani Marco Gaboardi Deepak Garg and Jan Hoffmann. 2021. A Unifying Type-Theory for Higher-Order (Amortized) Cost Analysis. In 48th Symposium on Principles of Programming Languages (POPL’21). doi:10.1145/3434308",
+      "DOI": "10.1145/3434308"
+    },
+    {
+      "key": "e_1_3_2_93_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/BF01019459"
+    },
+    {
+      "key": "e_1_3_2_94_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3519939.3523710"
+    },
+    {
+      "key": "e_1_3_2_95_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3571264"
+    },
+    {
+      "key": "e_1_3_2_96_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Hugo R. Simões Pedro B. Vasconcelos Mário Florido Steffen Jost and Kevin Hammond. 2012. Automatic Amortised Analysis of Dynamic Memory Allocation for Lazy Functional Programs. In 17th Int. Conf. on Funct. Prog. (ICFP’12).",
+      "DOI": "10.1145/2364527.2364575"
+    },
+    {
+      "key": "e_1_3_2_97_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Moritz Sinn Florian Zuleger and Helmut Veith. 2014. A Simple and Scalable Approach to Bound Analysis and Amortized Complexity Analysis. In Computer Aided Verification - 26th Int. Conf. (CAV’14).",
+      "DOI": "10.1007/978-3-319-08867-9_50"
+    },
+    {
+      "key": "e_1_3_2_98_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3453483.3454039"
+    },
+    {
+      "key": "e_1_3_2_99_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Wenhao Tang Leo White Stephen Dolan Daniel Hillerström Sam Lindley and Anton Lorenzen. 2024. Modal Effect Types. arXiv:2407.11816 [cs.PL] doi:10.1145/3720476",
+      "DOI": "10.1145/3720476"
+    },
+    {
+      "key": "e_1_3_2_100_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1137/0606031"
+    },
+    {
+      "key": "e_1_3_2_101_2",
+      "unstructured": "The CLP Team. 2024. CLP. https://projects.coin-or.org/Clp."
+    },
+    {
+      "key": "e_1_3_2_102_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3704841"
+    },
+    {
+      "key": "e_1_3_2_103_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Pedro B. Vasconcelos Steffen Jost Mário Florido and Kevin Hammond. 2015. Type-Based Allocation Analysis for Co-recursion in Lazy Functional Languages. In 24th European Symposium on Programming (ESOP’15).",
+      "DOI": "10.1007/978-3-662-46669-8_32"
+    },
+    {
+      "key": "e_1_3_2_104_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3763155"
+    },
+    {
+      "key": "e_1_3_2_105_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Di Wang David M. Kahn and Jan Hoffmann. 2020. Raising Expectations: Automating Expected Cost Analysis with Types. In 25th International Conference on Functional Programming (ICFP’20). doi:10.1145/3408992",
+      "DOI": "10.1145/3408992"
+    },
+    {
+      "key": "e_1_3_2_106_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3133903"
+    },
+    {
+      "key": "e_1_3_2_107_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1159876.1159877"
+    },
+    {
+      "key": "e_1_3_2_108_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/361002.361016"
+    },
+    {
+      "key": "e_1_3_2_109_2",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1347375.1347389"
+    },
+    {
+      "key": "e_1_3_2_110_2",
+      "doi-asserted-by": "crossref",
+      "unstructured": "Florian Zuleger Moritz Sinn Sumit Gulwani and Helmut Veith. 2011. Bound Analysis of Imperative Programs with the Size-change Abstraction. In 18th Int. Static Analysis Symp. (SAS’11).",
+      "DOI": "10.1007/978-3-642-23702-7_22"
+    },
+    {
+      "key": "e_1_3_2_111_2",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Ezgi Çiçek Gilles Barthe Marco Gaboardi Deepak Garg and Jan Hoffmann. 2017. Relational Cost Analysis. In 44th Symposium on Principles of Programming Languages (POPL’17). doi:10.1145/3009837.3009858",
+      "DOI": "10.1145/3009837.3009858"
+    }
+  ],
+  "container-title": [
+    "Proceedings of the ACM on Programming Languages"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://dl.acm.org/doi/pdf/10.1145/3798207",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2026,
+        9,
+        26
+      ]
+    ],
+    "date-time": "2026-09-26T11:18:33Z",
+    "timestamp": 1790421513000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://dl.acm.org/doi/10.1145/3798207"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        10
+      ]
+    ]
+  },
+  "references-count": 110,
+  "journal-issue": {
+    "issue": "OOPSLA1",
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          4,
+          10
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "10.1145/3798207"
+  ],
+  "URL": "https://doi.org/10.1145/3798207",
+  "relation": {},
+  "ISSN": [
+    "2475-1421"
+  ],
+  "issn-type": [
+    {
+      "value": "2475-1421",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2026,
+        4,
+        10
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2025-10-09",
+      "order": 0,
+      "name": "received",
+      "label": "Received",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2026-02-17",
+      "order": 2,
+      "name": "accepted",
+      "label": "Accepted",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    },
+    {
+      "value": "2026-04-10",
+      "order": 3,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

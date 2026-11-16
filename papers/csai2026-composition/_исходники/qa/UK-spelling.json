@@ -1,16 +1,16 @@
 ﻿{
     "Dictionary":  "MSSP7EN.LEX",
     "LanguageId":  2057,
-    "Count":  63,
+    "Count":  70,
     "Words":  [
                   "Aehlig",
                   "asyncio",
+                  "doi",
                   "ExtraTrees",
                   "FastAPI",
                   "Gulcehre",
                   "i",
                   "Ithemal",
-                  "its",
                   "maxR",
                   "MdAPE",
                   "Merriënboer",
@@ -26,14 +26,9 @@
               ],
     "OrdinaryWordContexts":  [
                                  {
-                                     "Word":  "its",
-                                     "StandaloneCheck":  false,
-                                     "Context":  "d computational structure can be useful for learned performance prediction, but its hardware-level throughput target differs from coroutine suspension and request "
-                                 },
-                                 {
                                      "Word":  "queues",
                                      "StandaloneCheck":  false,
-                                     "Context":  "ed decisions while excluding online inference cost, saturation and process-pool queues. The all-offload result is an isolation reference. It does not justify a throug"
+                                     "Context":  "fline predictions, excluding online inference cost, saturation and process-pool queues. Universal offloading provides an isolation reference; it establishes neither t"
                                  }
                              ]
 }

@@ -1,0 +1,374 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        10,
+        1
+      ]
+    ],
+    "date-time": "2026-10-01T06:19:37Z",
+    "timestamp": 1790835577877,
+    "version": "4.1.0"
+  },
+  "publisher-location": "New York, NY, USA",
+  "reference-count": 27,
+  "publisher": "ACM",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2011,
+            1,
+            26
+          ]
+        ],
+        "date-time": "2011-01-26T00:00:00Z",
+        "timestamp": 1296000000000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "https://www.acm.org/publications/policies/copyright_policy#Background"
+    }
+  ],
+  "content-domain": {
+    "domain": [
+      "dl.acm.org"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [],
+  "published-print": {
+    "date-parts": [
+      [
+        2011,
+        1,
+        26
+      ]
+    ]
+  },
+  "DOI": "10.1145/1926385.1926427",
+  "type": "proceedings-article",
+  "created": {
+    "date-parts": [
+      [
+        2011,
+        1,
+        24
+      ]
+    ],
+    "date-time": "2011-01-24T09:58:22Z",
+    "timestamp": 1295863102000
+  },
+  "page": "357-370",
+  "update-policy": "https://doi.org/10.1145/crossmark-policy",
+  "source": "Crossref",
+  "is-referenced-by-count": 86,
+  "title": [
+    "Multivariate amortized resource analysis"
+  ],
+  "prefix": "10.1145",
+  "author": [
+    {
+      "given": "Jan",
+      "family": "Hoffmann",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Ludwig-Maximilians-Universität, München, Germany"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Klaus",
+      "family": "Aehlig",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Ludwig-Maximilians-Universität, München, Germany"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Martin",
+      "family": "Hofmann",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Ludwig-Maximilians-Universität, München, Germany"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "320",
+  "published-online": {
+    "date-parts": [
+      [
+        2011,
+        1,
+        26
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_3_2_2_1_1",
+      "first-page": "157",
+      "volume-title": "Cost Analysis of Java Bytecode. In 16th Euro. Symp. on Prog. (ESOP'07)",
+      "author": "Albert E.",
+      "year": "2007",
+      "unstructured": "E. Albert , P. Arenas , S. Genaim , G. Puebla , and D. Zanardini . Cost Analysis of Java Bytecode. In 16th Euro. Symp. on Prog. (ESOP'07) , pages 157 -- 172 , 2007 . E. Albert, P. Arenas, S. Genaim, G. Puebla, and D. Zanardini. Cost Analysis of Java Bytecode. In 16th Euro. Symp. on Prog. (ESOP'07), pages 157--172, 2007."
+    },
+    {
+      "key": "e_1_3_2_2_2_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-69166-2_15"
+    },
+    {
+      "key": "e_1_3_2_2_3_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.entcs.2009.12.008"
+    },
+    {
+      "key": "e_1_3_2_2_4_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-11957-6_6"
+    },
+    {
+      "key": "e_1_3_2_2_5_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.tcs.2003.10.022"
+    },
+    {
+      "key": "e_1_3_2_2_6_1",
+      "first-page": "347",
+      "volume-title": "11th Conf. (LPAR'04)",
+      "author": "Beringer L.",
+      "year": "2004",
+      "unstructured": "L. Beringer , M. Hofmann , A. Momigliano , and O. Shkaravska . Automatic Certification of Heap Consumption. In Log. f. Prog., AI, and Reas ., 11th Conf. (LPAR'04) , pages 347 -- 362 , 2004 . L. Beringer, M. Hofmann, A. Momigliano, and O. Shkaravska. Automatic Certification of Heap Consumption. In Log. f. Prog., AI, and Reas., 11th Conf. (LPAR'04), pages 347--362, 2004."
+    },
+    {
+      "key": "e_1_3_2_2_7_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-00590-9_14"
+    },
+    {
+      "key": "e_1_3_2_2_8_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1023/A:1012996816178"
+    },
+    {
+      "key": "e_1_3_2_2_9_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/325694.325716"
+    },
+    {
+      "key": "e_1_3_2_2_10_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1328438.1328457"
+    },
+    {
+      "key": "e_1_3_2_2_11_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/0304-3975(91)90145-R"
+    },
+    {
+      "key": "e_1_3_2_2_12_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/507635.507666"
+    },
+    {
+      "key": "e_1_3_2_2_13_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-70545-1_35"
+    },
+    {
+      "key": "e_1_3_2_2_14_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1806596.1806630"
+    },
+    {
+      "key": "e_1_3_2_2_15_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1480881.1480898"
+    },
+    {
+      "key": "e_1_3_2_2_16_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-11957-6_16"
+    },
+    {
+      "key": "e_1_3_2_2_17_1",
+      "volume-title": "Amortized Resource Analysis with Polymorphic Recursion and Partial Big-Step Operational Semantics. In 8th Asian Symp. on Prog. Langs. (APLAS'10)",
+      "author": "Hoffmann J.",
+      "year": "2010",
+      "unstructured": "J. Hoffmann and M. Hofmann . Amortized Resource Analysis with Polymorphic Recursion and Partial Big-Step Operational Semantics. In 8th Asian Symp. on Prog. Langs. (APLAS'10) , 2010 . To appear. J. Hoffmann and M. Hofmann. Amortized Resource Analysis with Polymorphic Recursion and Partial Big-Step Operational Semantics. In 8th Asian Symp. on Prog. Langs. (APLAS'10), 2010. To appear."
+    },
+    {
+      "key": "e_1_3_2_2_18_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/604131.604148"
+    },
+    {
+      "key": "e_1_3_2_2_19_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/11693024_3"
+    },
+    {
+      "key": "e_1_3_2_2_20_1",
+      "volume-title": "Efficient Type-Checking for Amortised Heap-Space Analysis. In 18th Conf. on Comp. Science Logic (CSL'09)",
+      "author": "Hofmann M.",
+      "year": "2009",
+      "unstructured": "M. Hofmann and D. Rodriguez . Efficient Type-Checking for Amortised Heap-Space Analysis. In 18th Conf. on Comp. Science Logic (CSL'09) . LNCS, 2009 . M. Hofmann and D. Rodriguez. Efficient Type-Checking for Amortised Heap-Space Analysis. In 18th Conf. on Comp. Science Logic (CSL'09). LNCS, 2009."
+    },
+    {
+      "key": "e_1_3_2_2_21_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/317636.317785"
+    },
+    {
+      "key": "e_1_3_2_2_22_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/237721.240882"
+    },
+    {
+      "key": "e_1_3_2_2_23_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-05089-3_23"
+    },
+    {
+      "key": "e_1_3_2_2_24_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1706299.1706327"
+    },
+    {
+      "key": "e_1_3_2_2_25_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.5555/1770203.1770228"
+    },
+    {
+      "key": "e_1_3_2_2_26_1",
+      "series-title": "SIAM J. Algebraic Discrete Methods, 6(2):306--318",
+      "volume-title": "Amortized Computational Complexity",
+      "author": "Tarjan R. E.",
+      "year": "1985",
+      "unstructured": "R. E. Tarjan . Amortized Computational Complexity . SIAM J. Algebraic Discrete Methods, 6(2):306--318 , 1985 . R. E. Tarjan. Amortized Computational Complexity. SIAM J. Algebraic Discrete Methods, 6(2):306--318, 1985."
+    },
+    {
+      "key": "e_1_3_2_2_27_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1347375.1347389"
+    }
+  ],
+  "event": {
+    "name": "POPL '11: The 38th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages",
+    "location": "Austin Texas USA",
+    "acronym": "POPL '11",
+    "sponsor": [
+      "SIGPLAN ACM Special Interest Group on Programming Languages",
+      "SIGACT ACM Special Interest Group on Algorithms and Computation Theory"
+    ]
+  },
+  "container-title": [
+    "Proceedings of the 38th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages"
+  ],
+  "original-title": [],
+  "link": [
+    {
+      "URL": "https://dl.acm.org/doi/10.1145/1926385.1926427",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://dl.acm.org/doi/pdf/10.1145/1926385.1926427",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2025,
+        6,
+        18
+      ]
+    ],
+    "date-time": "2025-06-18T06:59:51Z",
+    "timestamp": 1750229991000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://dl.acm.org/doi/10.1145/1926385.1926427"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2011,
+        1,
+        26
+      ]
+    ]
+  },
+  "references-count": 27,
+  "alternative-id": [
+    "10.1145/1926385.1926427",
+    "10.1145/1926385"
+  ],
+  "URL": "https://doi.org/10.1145/1926385.1926427",
+  "relation": {
+    "is-identical-to": [
+      {
+        "id-type": "doi",
+        "id": "10.1145/1925844.1926427",
+        "asserted-by": "object"
+      }
+    ]
+  },
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2011,
+        1,
+        26
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2011-01-26",
+      "order": 2,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

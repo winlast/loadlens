@@ -7,7 +7,7 @@ from pypdf import PdfReader,PdfWriter
 from pypdf.generic import NameObject
 from docx import Document
 from docx.oxml.ns import qn
-from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES
+from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES,REF_LINKS
 count=0
 def check(value,message):
     global count
@@ -18,7 +18,7 @@ report={'documents':{},'similarity':{},'reproduction':{}}
 check(len(ABSTRACT.split())<=200,'abstract length');check(len(KEYWORDS)<=5,'keywords')
 template=BASE.parent/'IET-Template.docx';check(digest(template)=='5c47aa829c833b784e253c3491dd51586cebee956d5d5c9b5434d49eabf4929f','reference preserved')
 identities=re.compile(r'sinyav|letunov|galyuk|teplits|sanina|babichev|ssd-tula|winlast|bauman',re.I)
-for author,qa in [(False,'anonymous-review-final2'),(True,'authors-review-final2')]:
+for author,qa in [(False,'anonymous-bibliography-final'),(True,'authors-bibliography-final')]:
     stem='CSAI2026_Composition_'+('Authors' if author else 'Anonymous');path=OUT/(stem+'.docx');d=Document(path)
     check(len(d.sections)==2,'two sections')
     for s in d.sections:
@@ -31,7 +31,8 @@ for author,qa in [(False,'anonymous-review-final2'),(True,'authors-review-final2
     if not author:check(body.count('Anonymous authors')==1,'anonymous author label')
     check('@' not in body if not author else True,'markup removed')
     check(re.search(r'\d (?:ms|µs|cm|mm|pt)\b',body) is None,'number unit nonbreaking space')
-    citations=[int(x) for x in re.findall(r'\[(\d+)\]',body.split('6 References')[0])];check(list(dict.fromkeys(citations))==list(range(1,10)),'citation order')
+    citations=[int(x) for x in re.findall(r'\[(\d+)\]',body.split('6 References')[0])];check(list(dict.fromkeys(citations))==list(range(1,len(REFERENCES)+1)),'citation order')
+    check(any(r.reltype.endswith('/hyperlink') for r in d.part.rels.values()),'external reference hyperlinks')
     with zipfile.ZipFile(path) as z,zipfile.ZipFile(template) as src:
         changed=[name for name in src.namelist() if name in z.namelist() and z.read(name)!=src.read(name)]
         missing=[name for name in src.namelist() if name not in z.namelist()]
@@ -47,6 +48,8 @@ for author,qa in [(False,'anonymous-review-final2'),(True,'authors-review-final2
     if not (author and '--anonymous-only' in sys.argv):
         with final.open('wb') as f:writer.write(f)
     pdf=pymupdf.open(final);original=pymupdf.open(source);check(len(pdf)==6,'six pages')
+    uris={link['uri'] for page in pdf for link in page.get_links() if link.get('uri')}
+    for link in REF_LINKS:check(link in uris,'reference link exported '+link)
     check(final.read_bytes().startswith(b'%PDF-1.4'),'PDF version')
     check(PdfReader(final).metadata.subject==CONFERENCE,'full conference name in PDF Subject')
     fonts={};unit_starts=[]

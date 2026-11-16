@@ -1,0 +1,736 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        10,
+        6
+      ]
+    ],
+    "date-time": "2026-10-06T15:19:39Z",
+    "timestamp": 1791299979280,
+    "version": "4.1.0"
+  },
+  "reference-count": 91,
+  "publisher": "Association for Computing Machinery (ACM)",
+  "issue": "PLDI",
+  "license": [
+    {
+      "start": {
+        "date-parts": [
+          [
+            2024,
+            6,
+            20
+          ]
+        ],
+        "date-time": "2024-06-20T00:00:00Z",
+        "timestamp": 1718841600000
+      },
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "URL": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+  ],
+  "funder": [
+    {
+      "DOI": "10.13039/100000001",
+      "name": "National Science Foundation",
+      "doi-asserted-by": "publisher",
+      "award": [
+        "2311983, 2007784, 1845514"
+      ],
+      "award-info": [
+        {
+          "award-number": [
+            "2311983, 2007784, 1845514"
+          ]
+        }
+      ],
+      "id": [
+        {
+          "id": "10.13039/100000001",
+          "id-type": "DOI",
+          "asserted-by": "publisher"
+        }
+      ]
+    }
+  ],
+  "content-domain": {
+    "domain": [
+      "dl.acm.org"
+    ],
+    "crossmark-restriction": true
+  },
+  "short-container-title": [
+    "Proc. ACM Program. Lang."
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        20
+      ]
+    ]
+  },
+  "abstract": "<jats:p>\n            There are two approaches to automatically deriving symbolic worst-case resource bounds for programs: static analysis of the source code and data-driven analysis of cost measurements obtained by running the program. Static resource analysis is usually sound but incomplete. Data-driven analysis can always return a result, but its lack of robustness often leads to unsound results. This paper presents the design, implementation, and empirical evaluation of hybrid resource bound analyses that tightly integrate static analysis and data-driven analysis. The static analysis part builds on automatic amortized resource analysis (AARA), a state-of-the-art type-based resource analysis method that performs cost bound inference using linear optimization. The data-driven part is rooted in novel Bayesian modeling and inference techniques that improve upon previous data-driven analysis methods by reporting an entire probability distribution over likely resource cost bounds. A key innovation is a new type inference system called\n            <jats:italic toggle=\"yes\">Hybrid AARA</jats:italic>\n            that coherently integrates Bayesian inference into conventional AARA, combining the strengths of both approaches. Hybrid AARA is proven to be statistically sound under standard assumptions on the runtime cost data. An experimental evaluation on a challenging set of benchmarks shows that Hybrid AARA (i) effectively mitigates the incompleteness of purely static resource analysis; and (ii) is more accurate and robust than purely data-driven resource analysis.\n          </jats:p>",
+  "DOI": "10.1145/3656380",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        20
+      ]
+    ],
+    "date-time": "2024-06-20T16:27:20Z",
+    "timestamp": 1718900840000
+  },
+  "page": "76-101",
+  "update-policy": "https://doi.org/10.1145/crossmark-policy",
+  "source": "Crossref",
+  "is-referenced-by-count": 8,
+  "title": [
+    "Robust Resource Bounds with Static Analysis and Bayesian Inference"
+  ],
+  "prefix": "10.1145",
+  "volume": "8",
+  "author": [
+    {
+      "ORCID": "https://orcid.org/0000-0001-5153-8140",
+      "authenticated-orcid": false,
+      "given": "Long",
+      "family": "Pham",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0002-0505-795X",
+      "authenticated-orcid": false,
+      "given": "Feras A.",
+      "family": "Saad",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "ORCID": "https://orcid.org/0000-0001-8326-0788",
+      "authenticated-orcid": false,
+      "given": "Jan",
+      "family": "Hoffmann",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Carnegie Mellon University, Pittsburgh, USA"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "member": "320",
+  "published-online": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        20
+      ]
+    ]
+  },
+  "reference": [
+    {
+      "key": "e_1_3_2_2_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3065924"
+    },
+    {
+      "key": "e_1_3_2_3_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-71316-6_12"
+    },
+    {
+      "key": "e_1_3_2_4_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-540-92188-2_5"
+    },
+    {
+      "key": "e_1_3_2_5_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1002/9781118445112.stat02177.pub2"
+    },
+    {
+      "key": "e_1_3_2_6_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3110287"
+    },
+    {
+      "key": "e_1_3_2_7_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2784731.2784753"
+    },
+    {
+      "key": "e_1_3_2_8_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.ic.2015.12.007"
+    },
+    {
+      "key": "e_1_3_2_9_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3428240"
+    },
+    {
+      "key": "e_1_3_2_10_1",
+      "volume-title": "pWCET: A Tool for Probabilistic Worst-Case Execution Time Analysis of Real-Time Systems",
+      "author": "Bernat Guillem",
+      "year": "2003",
+      "unstructured": "Guillem Bernat, Antoine Colin, and Stefan Petters. 2003. pWCET: A Tool for Probabilistic Worst-Case Execution Time Analysis of Real-Time Systems. Technical Report YCS-2003-353. University of York."
+    },
+    {
+      "key": "e_1_3_2_11_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.4230/OASIcs.WCET.2010.54"
+    },
+    {
+      "key": "e_1_3_2_12_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/S0022-0000(73)80033-9"
+    },
+    {
+      "key": "e_1_3_2_13_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-54862-8_10"
+    },
+    {
+      "key": "e_1_3_2_14_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2737924.2737955"
+    },
+    {
+      "key": "e_1_3_2_15_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1080/00031305.1985.10479400"
+    },
+    {
+      "key": "e_1_3_2_16_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.20382/jocg.v13i1a3"
+    },
+    {
+      "key": "e_1_3_2_17_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.4230/OASIcs.WCET.2013.64"
+    },
+    {
+      "key": "e_1_3_2_18_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.32614/RJ-2021-077"
+    },
+    {
+      "key": "e_1_3_2_19_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3589505"
+    },
+    {
+      "key": "e_1_3_2_20_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s10817-017-9431-7"
+    },
+    {
+      "key": "e_1_3_2_21_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3339984"
+    },
+    {
+      "key": "e_1_3_2_22_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3009837.3009858"
+    },
+    {
+      "key": "e_1_3_2_23_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-65474-0_1"
+    },
+    {
+      "key": "e_1_3_2_24_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2254064.2254076"
+    },
+    {
+      "key": "e_1_3_2_25_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/325694.325716"
+    },
+    {
+      "key": "e_1_3_2_26_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3408979"
+    },
+    {
+      "key": "e_1_3_2_27_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1328438.1328457"
+    },
+    {
+      "key": "e_1_3_2_28_1",
+      "unstructured": "Ankush Das Stephanie Balzer Jan Hoffmann Frank Pfenning and Ishani Santurkar. 2019. Resource-Aware Session Types for Digital Contracts. arXiv:1902.06056[cs]"
+    },
+    {
+      "key": "e_1_3_2_29_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3209108.3209146"
+    },
+    {
+      "key": "e_1_3_2_30_1",
+      "first-page": "48",
+      "volume-title": "Bull. EATCS",
+      "author": "Demetrescu Camil",
+      "year": "2003",
+      "unstructured": "Camil Demetrescu, Irene Finocchi, and Giuseppe F. Italiano. 2003. Algorithm Engineering, Algorithmics Column. Bull. EATCS 79 (2003), 48-63."
+    },
+    {
+      "key": "e_1_3_2_31_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-319-24012-1_1"
+    },
+    {
+      "key": "e_1_3_2_32_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-031-08166-8_10"
+    },
+    {
+      "key": "e_1_3_2_33_1",
+      "first-page": "69",
+      "volume-title": "IEEE Embedded Systems Letters",
+      "author": "Gil Samuel Jimenez",
+      "year": "2017",
+      "unstructured": "Samuel Jimenez Gil, Iain Bate, George Lima, Luca Santinelli, Adriana Gogonel, and Liliana Cucu-Grosjean. 2017. Open Challenges for Probabilistic Measurement-Based Worst-Case Execution Time. IEEE Embedded Systems Letters 9, 3 (2017), 69-72."
+    },
+    {
+      "key": "e_1_3_2_34_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1287624.1287681"
+    },
+    {
+      "key": "e_1_3_2_35_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.4230/OASIcs.WCET.2010.44"
+    },
+    {
+      "key": "e_1_3_2_36_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/507635.507666"
+    },
+    {
+      "key": "e_1_3_2_37_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/LICS56636.2023.10175720"
+    },
+    {
+      "key": "e_1_3_2_38_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1480881.1480898"
+    },
+    {
+      "key": "e_1_3_2_39_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3371092"
+    },
+    {
+      "key": "e_1_3_2_40_1",
+      "unstructured": "Jan Hoffmann. 2011. Types with Potential: Polynomial Resource Bounds via Automatic Amortized Analysis. Ph.D. Dissertation. Ludwig-Maximilians-Universitat Munchen. https://edoc.ub.uni-muenchen.de/13955/"
+    },
+    {
+      "key": "e_1_3_2_41_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1926385.1926427"
+    },
+    {
+      "key": "e_1_3_2_42_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-31424-7_64"
+    },
+    {
+      "key": "e_1_3_2_43_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3009837.3009842"
+    },
+    {
+      "key": "e_1_3_2_44_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-17164-2_13"
+    },
+    {
+      "key": "e_1_3_2_45_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-11957-6_16"
+    },
+    {
+      "key": "e_1_3_2_46_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/S0960129521000487"
+    },
+    {
+      "key": "e_1_3_2_47_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-662-46669-8_6"
+    },
+    {
+      "key": "e_1_3_2_48_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/604131.604148"
+    },
+    {
+      "key": "e_1_3_2_49_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1017/S0960129521000232"
+    },
+    {
+      "key": "e_1_3_2_50_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-319-08918-8_19"
+    },
+    {
+      "key": "e_1_3_2_51_1",
+      "first-page": "883",
+      "volume-title": "Advances in Neural Information Processing Systems,",
+      "author": "Huang Ling",
+      "year": "2010",
+      "unstructured": "Ling Huang, Jinzhu Jia, Bin Yu, Byung-Gon Chun, Petros Maniatis, and Mayur Naik. 2010. Predicting Execution Time of Computer Programs Using Sparse Polynomial Regression. In Advances in Neural Information Processing Systems, Vol. 23. Curran Associates Inc., Red Hook, NY, USA, 883-891."
+    },
+    {
+      "key": "e_1_3_2_52_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3485515"
+    },
+    {
+      "key": "e_1_3_2_53_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1090/dimacs/059/11"
+    },
+    {
+      "key": "e_1_3_2_54_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1706299.1706327"
+    },
+    {
+      "key": "e_1_3_2_55_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-45231-5_19"
+    },
+    {
+      "key": "e_1_3_2_56_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3371083"
+    },
+    {
+      "key": "e_1_3_2_57_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3158142"
+    },
+    {
+      "key": "e_1_3_2_58_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3408988"
+    },
+    {
+      "key": "e_1_3_2_59_1",
+      "first-page": "13",
+      "volume-title": "Advances in Neural Information Processing Systems,",
+      "author": "Kook Yunbum",
+      "year": "2022",
+      "unstructured": "Yunbum Kook, YinTat Lee, Ruoqi Shen, and Santosh Vempala. 2022. Sampling with Riemannian Hamiltonian Monte Carlo in a Constrained Space. In Advances in Neural Information Processing Systems, Vol. 35. Curran Associates Inc., Red Hook, NY, USA, 13 pages."
+    },
+    {
+      "key": "e_1_3_2_60_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/LICS.2011.22"
+    },
+    {
+      "key": "e_1_3_2_61_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-81688-9_5"
+    },
+    {
+      "key": "e_1_3_2_62_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-031-13188-2_4"
+    },
+    {
+      "key": "e_1_3_2_63_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.4230/LIPIcs.FSCD.2017.26"
+    },
+    {
+      "key": "e_1_3_2_64_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/ECRTS.2016.20"
+    },
+    {
+      "key": "e_1_3_2_65_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2038617.2038619"
+    },
+    {
+      "key": "e_1_3_2_66_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.21236/ADA188528"
+    },
+    {
+      "key": "e_1_3_2_67_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/3-540-36383-1_5"
+    },
+    {
+      "key": "e_1_3_2_68_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-030-17184-1_1"
+    },
+    {
+      "key": "e_1_3_2_69_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/SIES.2017.7993402"
+    },
+    {
+      "key": "e_1_3_2_70_1",
+      "first-page": "3007",
+      "volume-title": "Advances in Neural Information Processing Systems",
+      "author": "Afshar Hadi Mohasel",
+      "year": "2015",
+      "unstructured": "Hadi Mohasel Afshar and Justin Domke. 2015. Reflection, Refraction, and Hamiltonian Monte Carlo. In Advances in Neural Information Processing Systems, Vol. 28. MIT Press, Cambridge, MA, USA, 3007-3015."
+    },
+    {
+      "key": "e_1_3_2_71_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3571218"
+    },
+    {
+      "key": "e_1_3_2_72_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1090/dimacs/059/10"
+    },
+    {
+      "key": "e_1_3_2_73_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1016/j.scico.2019.102306"
+    },
+    {
+      "key": "e_1_3_2_74_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3192366.3192394"
+    },
+    {
+      "key": "e_1_3_2_75_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/s10817-018-9459-3"
+    },
+    {
+      "key": "e_1_3_2_76_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3498670"
+    },
+    {
+      "key": "e_1_3_2_77_1",
+      "doi-asserted-by": "publisher",
+      "unstructured": "Long Pham Feras Saad and Jan Hoffmann. 2024. Hybrid Resource-Aware ML. 10.5281/zenodo.10937074",
+      "DOI": "10.5281/zenodo.10937074"
+    },
+    {
+      "key": "e_1_3_2_78_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1109/TSE.2021.3067652"
+    },
+    {
+      "key": "e_1_3_2_79_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3396234"
+    },
+    {
+      "key": "e_1_3_2_80_1",
+      "unstructured": "Stefano Rizzelli Judith Rousseau and Sonia Petrone. 2024. Empirical Bayes in Bayesian Learning: Understanding a Common Practice. arXiv:2402.19036 [math]"
+    },
+    {
+      "key": "e_1_3_2_81_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3342195.3387554"
+    },
+    {
+      "key": "e_1_3_2_82_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/3-540-44691-5_12"
+    },
+    {
+      "key": "e_1_3_2_83_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-319-08867-9_50"
+    },
+    {
+      "key": "e_1_3_2_84_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/800061.808752"
+    },
+    {
+      "key": "e_1_3_2_85_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2786.2793"
+    },
+    {
+      "key": "e_1_3_2_86_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1137/0606031"
+    },
+    {
+      "key": "e_1_3_2_87_1",
+      "volume-title": "Space Cost Analysis Using Sized Types.",
+      "author": "Vasconcelos Pedro B.",
+      "year": "2008",
+      "unstructured": "Pedro B. Vasconcelos. 2008. Space Cost Analysis Using Sized Types. Ph.D. Dissertation. University of St. Andrews."
+    },
+    {
+      "key": "e_1_3_2_88_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/3408992"
+    },
+    {
+      "key": "e_1_3_2_89_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/361002.361016"
+    },
+    {
+      "key": "e_1_3_2_90_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/1347375.1347389"
+    },
+    {
+      "key": "e_1_3_2_91_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1145/2254064.2254074"
+    },
+    {
+      "key": "e_1_3_2_92_1",
+      "doi-asserted-by": "publisher",
+      "DOI": "10.1007/978-3-642-23702-7_22"
+    }
+  ],
+  "container-title": [
+    "Proceedings of the ACM on Programming Languages"
+  ],
+  "original-title": [],
+  "language": "en",
+  "link": [
+    {
+      "URL": "https://dl.acm.org/doi/10.1145/3656380",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "text-mining"
+    },
+    {
+      "URL": "https://dl.acm.org/doi/pdf/10.1145/3656380",
+      "content-type": "unspecified",
+      "content-version": "vor",
+      "intended-application": "similarity-checking"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2025,
+        7,
+        4
+      ]
+    ],
+    "date-time": "2025-07-04T20:44:30Z",
+    "timestamp": 1751661870000
+  },
+  "score": 1,
+  "resource": {
+    "primary": {
+      "URL": "https://dl.acm.org/doi/10.1145/3656380"
+    }
+  },
+  "subtitle": [],
+  "short-title": [],
+  "issued": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        20
+      ]
+    ]
+  },
+  "references-count": 91,
+  "journal-issue": {
+    "issue": "PLDI",
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          6,
+          20
+        ]
+      ]
+    }
+  },
+  "alternative-id": [
+    "10.1145/3656380"
+  ],
+  "URL": "https://doi.org/10.1145/3656380",
+  "relation": {},
+  "ISSN": [
+    "2475-1421"
+  ],
+  "issn-type": [
+    {
+      "value": "2475-1421",
+      "type": "electronic"
+    }
+  ],
+  "subject": [],
+  "published": {
+    "date-parts": [
+      [
+        2024,
+        6,
+        20
+      ]
+    ]
+  },
+  "assertion": [
+    {
+      "value": "2024-06-20",
+      "order": 3,
+      "name": "published",
+      "label": "Published",
+      "group": {
+        "name": "publication_history",
+        "label": "Publication History"
+      }
+    }
+  ]
+}

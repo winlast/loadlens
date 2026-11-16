@@ -9,8 +9,8 @@
         "BCDHEE+TimesNewRomanPS-ItalicMT": 81628,
         "BCDIEE+TimesNewRomanPSMT": 115680
       },
-      "docx_sha256": "0d17bd6764af370876d59b9afe005c36920fd50c2aee757adf90c78bb846edc6",
-      "pdf_sha256": "2378ed2ba59496e936ae7d06aea02ddd1d9adfcee344c37c177c1b2cbdb510d7",
+      "docx_sha256": "b0f966ad48bbee9091e52655369bc723b7c65143da0f5f90aa76a100553df241",
+      "pdf_sha256": "077d1db4787573cbce77b3903ddce0de06b0d53aa896b5e696588685962375e9",
       "changed_template_parts": [
         "[Content_Types].xml",
         "word/document.xml",
@@ -30,8 +30,8 @@
         "BCDHEE+TimesNewRomanPS-ItalicMT": 87608,
         "BCDIEE+TimesNewRomanPSMT": 115680
       },
-      "docx_sha256": "a76115634da8e36406f1ca591d7d12b7ed9ed44118708f7460cdc5a0d5999056",
-      "pdf_sha256": "8e6be0c9ee4f4be754e08dc5c2620bb3dc8e69b264f82d161b01d8c0c71a5a39",
+      "docx_sha256": "9006659318dc85641443f9eff915e4c9807dfe6f08df60879f0f874d1fc9d1d1",
+      "pdf_sha256": "0b7d879e9bc53922caf38b07e0a452f5881a23490912763c46ce04eef7c5d7d9",
       "changed_template_parts": [
         "[Content_Types].xml",
         "word/document.xml",
@@ -46,12 +46,12 @@
   "similarity": {
     "Sinyavskiy_ISCT.txt": {
       "shared_fivegrams": 0,
-      "new_fivegrams": 4084,
+      "new_fivegrams": 3781,
       "share_pct": 0.0
     },
     "Синявский_статья_РИНЦ_ИИАСУ.txt": {
       "shared_fivegrams": 0,
-      "new_fivegrams": 4084,
+      "new_fivegrams": 3781,
       "share_pct": 0.0
     }
   },
@@ -61,5 +61,5 @@
     "tolerance": 1e-10,
     "note": "Parallel tree-ensemble accumulation differs at floating-point roundoff; all neural, recurrent and analytic predictions are identical."
   },
-  "assertions": 17866
+  "assertions": 17862
 }

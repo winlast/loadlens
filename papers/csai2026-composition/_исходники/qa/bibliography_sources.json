@@ -1,0 +1,741 @@
+{
+  "verification_date": "2026-11-16",
+  "references": [
+    {
+      "reference": 1,
+      "title": "A sense of time for JavaScript and Node.js: First-class timeouts as a cure for event handler poisoning",
+      "source_url": "https://www.usenix.org/conference/usenixsecurity18/presentation/davis",
+      "verification": "Primary proceedings/documentation page inspected; no DOI invented."
+    },
+    {
+      "reference": 2,
+      "title": "A conceptual overview of asyncio",
+      "source_url": "https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html",
+      "verification": "Primary proceedings/documentation page inspected; no DOI invented."
+    },
+    {
+      "reference": 3,
+      "title": "Sage: Practical & scalable ML-driven performance debugging in microservices",
+      "source_url": "https://www.csl.cornell.edu/~delimitrou/papers/2021.asplos.sage.pdf",
+      "doi": "10.1145/3445814.3446700",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Sage: practical and scalable ML-driven performance debugging in microservices"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-2697-9950",
+            "authenticated-orcid": false,
+            "given": "Yu",
+            "family": "Gan",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Cornell University, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mingyu",
+            "family": "Liang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cornell University, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sundar",
+            "family": "Dev",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Google, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "David",
+            "family": "Lo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Google, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7779-4134",
+            "authenticated-orcid": false,
+            "given": "Christina",
+            "family": "Delimitrou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cornell University, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              4,
+              17
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the 26th ACM International Conference on Architectural Support for Programming Languages and Operating Systems"
+        ],
+        "volume": null,
+        "issue": null,
+        "page": "135-151",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 4,
+      "title": "Ithemal: Accurate, portable and fast basic block throughput estimation using deep neural networks",
+      "source_url": "https://proceedings.mlr.press/v97/mendis19a.html",
+      "verification": "Primary proceedings/documentation page inspected; no DOI invented."
+    },
+    {
+      "reference": 5,
+      "title": "Neural algorithmic reasoning",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S2666389921000994",
+      "doi": "10.1016/j.patter.2021.100273",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Neural algorithmic reasoning"
+        ],
+        "author": [
+          {
+            "given": "Petar",
+            "family": "Veličković",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Charles",
+            "family": "Blundell",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              7
+            ]
+          ]
+        },
+        "container-title": [
+          "Patterns"
+        ],
+        "volume": "2",
+        "issue": "7",
+        "page": "100273",
+        "article-number": "100273"
+      }
+    },
+    {
+      "reference": 6,
+      "title": "The CLRS algorithmic reasoning benchmark",
+      "source_url": "https://proceedings.mlr.press/v162/velickovic22a.html",
+      "verification": "Primary proceedings/documentation page inspected; no DOI invented."
+    },
+    {
+      "reference": 7,
+      "title": "Open-book neural algorithmic reasoning",
+      "source_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/12ffe4499085e9a51beb02441212e26b-Abstract-Conference.html",
+      "doi": "10.52202/079017-0314",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Open-Book Neural Algorithmic Reasoning"
+        ],
+        "author": [
+          {
+            "given": "Hefei",
+            "family": "Li",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Chao",
+            "family": "Peng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Chenyang",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhengfeng",
+            "family": "Yang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "container-title": [
+          "Advances in Neural Information Processing Systems 37"
+        ],
+        "volume": null,
+        "issue": null,
+        "page": "9819-9836",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 8,
+      "title": "Multivariate amortized resource analysis",
+      "source_url": "https://doi.org/10.1145/1926385.1926427",
+      "doi": "10.1145/1926385.1926427",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Multivariate amortized resource analysis"
+        ],
+        "author": [
+          {
+            "given": "Jan",
+            "family": "Hoffmann",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Ludwig-Maximilians-Universität, München, Germany"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Klaus",
+            "family": "Aehlig",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Ludwig-Maximilians-Universität, München, Germany"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Martin",
+            "family": "Hofmann",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Ludwig-Maximilians-Universität, München, Germany"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2011,
+              1,
+              26
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the 38th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages"
+        ],
+        "volume": null,
+        "issue": null,
+        "page": "357-370",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 9,
+      "title": "Robust resource bounds with static analysis and Bayesian inference",
+      "source_url": "https://www.cs.cmu.edu/~janh/assets/pdf/PhamSH24.tr.pdf",
+      "doi": "10.1145/3656380",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Robust Resource Bounds with Static Analysis and Bayesian Inference"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-5153-8140",
+            "authenticated-orcid": false,
+            "given": "Long",
+            "family": "Pham",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0505-795X",
+            "authenticated-orcid": false,
+            "given": "Feras A.",
+            "family": "Saad",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8326-0788",
+            "authenticated-orcid": false,
+            "given": "Jan",
+            "family": "Hoffmann",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              20
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the ACM on Programming Languages"
+        ],
+        "volume": "8",
+        "issue": "PLDI",
+        "page": "76-101",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 10,
+      "title": "Handling exceptions and effects with automatic resource analysis",
+      "source_url": "https://www.cs.cmu.edu/~janh/assets/pdf/ChuGH26.pdf",
+      "doi": "10.1145/3798207",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Handling Exceptions and Effects with Automatic Resource Analysis"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0005-6041-0313",
+            "authenticated-orcid": false,
+            "given": "Ethan",
+            "family": "Chu",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0004-3869-4404",
+            "authenticated-orcid": false,
+            "given": "Yiyang",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8326-0788",
+            "authenticated-orcid": false,
+            "given": "Jan",
+            "family": "Hoffmann",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Carnegie Mellon University, Pittsburgh, USA"
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              10
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the ACM on Programming Languages"
+        ],
+        "volume": "10",
+        "issue": "OOPSLA1",
+        "page": "201-230",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 11,
+      "title": "On the implementation time of distributed computing in synchronous mode with a limited number of copies of a software resource",
+      "source_url": "https://www.ispras.ru/proceedings/docs/2024/36/4/isp_36_2024_4_81.pdf",
+      "doi": "10.15514/ISPRAS-2024-36(4)-7",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "On the Implementation Time of Distributed Computing in Synchronous Mode with a Limited Number of Copies of a Software Resource"
+        ],
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-1233-7387",
+            "authenticated-orcid": false,
+            "given": "Pavel Alexsandrovich",
+            "family": "Pavlov",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the Institute for System Programming of the RAS"
+        ],
+        "volume": "36",
+        "issue": "4",
+        "page": "81-98",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 12,
+      "title": "Extremely randomized trees",
+      "source_url": "https://link.springer.com/article/10.1007/s10994-006-6226-1",
+      "doi": "10.1007/s10994-006-6226-1",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Extremely randomized trees"
+        ],
+        "author": [
+          {
+            "given": "Pierre",
+            "family": "Geurts",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Damien",
+            "family": "Ernst",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Louis",
+            "family": "Wehenkel",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2006,
+              3,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "Machine Learning"
+        ],
+        "volume": "63",
+        "issue": "1",
+        "page": "3-42",
+        "article-number": null
+      }
+    },
+    {
+      "reference": 13,
+      "title": "Learning phrase representations using RNN encoder–decoder for statistical machine translation",
+      "source_url": "https://aclanthology.org/D14-1179/",
+      "doi": "10.3115/v1/D14-1179",
+      "Crossref_title_matches": true,
+      "Crossref": {
+        "title": [
+          "Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation"
+        ],
+        "author": [
+          {
+            "given": "Kyunghyun",
+            "family": "Cho",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bart",
+            "family": "van Merrienboer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Caglar",
+            "family": "Gulcehre",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Dzmitry",
+            "family": "Bahdanau",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Fethi",
+            "family": "Bougares",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Holger",
+            "family": "Schwenk",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yoshua",
+            "family": "Bengio",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2014
+            ]
+          ]
+        },
+        "container-title": [
+          "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+        ],
+        "volume": null,
+        "issue": null,
+        "page": "1724-1734",
+        "article-number": null
+      }
+    }
+  ],
+  "doi_count": 9,
+  "all_DOI_titles_match": true,
+  "scope": "Crossref registration/title comparison plus manual primary-source authors/year/venue and claim checks; title links also verified in exported PDF. Crossref continuous pagination can differ from article-local pagination; article identifiers follow author/publisher PDFs."
+}

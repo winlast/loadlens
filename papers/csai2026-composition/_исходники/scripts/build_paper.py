@@ -14,7 +14,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH,WD_TAB_ALIGNMENT
 from docx.enum.section import WD_SECTION_START
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES,RESULTS,CHECKS
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
+from paper_content import TITLE,CONFERENCE,KEYWORDS,ABSTRACT,BLOCKS,REFERENCES,REF_LINKS,RESULTS,CHECKS
 
 def figures():
     FIG.mkdir(exist_ok=True)
@@ -84,6 +85,25 @@ def inline(p,text):
             a,b=token.split('_');run(p,a);run(p,b,italic=True,subscript=True)
         else:run(p,token)
 
+def hyperlink(p,text,url):
+    link=OxmlElement('w:hyperlink');link.set(qn('r:id'),p.part.relate_to(url,RT.HYPERLINK,is_external=True))
+    r=OxmlElement('w:r');pr=OxmlElement('w:rPr')
+    font=OxmlElement('w:rFonts');font.set(qn('w:ascii'),'Times New Roman');font.set(qn('w:hAnsi'),'Times New Roman');pr.append(font)
+    size=OxmlElement('w:sz');size.set(qn('w:val'),'20');pr.append(size)
+    colour=OxmlElement('w:color');colour.set(qn('w:val'),'000000');pr.append(colour)
+    underline=OxmlElement('w:u');underline.set(qn('w:val'),'none');pr.append(underline)
+    r.append(pr);t=OxmlElement('w:t');t.set(qn('xml:space'),'preserve');t.text=text;r.append(t);link.append(r);p._p.append(link)
+
+def reference(p,text,url):
+    first=text.index("'")+1;last=text.index("'",first)
+    run(p,text[:first]);hyperlink(p,text[first:last],url)
+    remainder=text[last:];position=0
+    for match in re.finditer(r'https?://\S+|doi:\s*(10\.\d{4,9}/\S+)',remainder):
+        run(p,remainder[position:match.start()]);value=match.group(0)
+        hyperlink(p,value,'https://doi.org/'+match.group(1) if match.group(1) else value)
+        position=match.end()
+    run(p,remainder[position:])
+
 def add_table(d,which):
     caption,head,rows,widths=tables(which);p=d.add_paragraph(caption,'PaperParagraphs');p.paragraph_format.keep_with_next=True
     t=d.add_table(rows=1,cols=len(head));t.autofit=False
@@ -147,7 +167,7 @@ def build(authors=False):
             filename,caption=text;p=d.add_paragraph(style='PaperParagraphs');p.alignment=WD_ALIGN_PARAGRAPH.CENTER;p.paragraph_format.space_after=Pt(3);p.paragraph_format.keep_with_next=True;p.add_run().add_picture(str(FIG/filename),width=Cm(8.7));p=d.add_paragraph(nonbreak(caption),'PaperParagraphs');p.paragraph_format.space_after=Pt(8)
         elif typ=='table':add_table(d,text)
     for i,ref in enumerate(REFERENCES,1):
-        p=d.add_paragraph(f'[{i}] '+ref,'PaperParagraphs');p.paragraph_format.left_indent=Cm(.55);p.paragraph_format.first_line_indent=Cm(-.55);p.paragraph_format.space_after=Pt(5)
+        p=d.add_paragraph(f'[{i}] ','PaperParagraphs');reference(p,ref,REF_LINKS[i-1]);p.paragraph_format.left_indent=Cm(.55);p.paragraph_format.first_line_indent=Cm(-.55);p.paragraph_format.space_after=Pt(3);p.paragraph_format.keep_together=True
     p=d.sections[0].footer.paragraphs[0];p.clear();p.style=d.styles['PaperParagraphs'];p.paragraph_format.space_after=Pt(0);p.alignment=WD_ALIGN_PARAGRAPH.CENTER
     fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');r=OxmlElement('w:r');pr=OxmlElement('w:rPr');font=OxmlElement('w:rFonts');font.set(qn('w:ascii'),'Times New Roman');font.set(qn('w:hAnsi'),'Times New Roman');pr.append(font);sz=OxmlElement('w:sz');sz.set(qn('w:val'),'20');pr.append(sz);r.append(pr);t=OxmlElement('w:t');t.text='1';r.append(t);fld.append(r);p._p.append(fld)
     cp=d.core_properties;cp.title=TITLE;cp.author='; '.join(names) if authors else '';cp.last_modified_by='';cp.subject=CONFERENCE;cp.keywords=', '.join(KEYWORDS);cp.comments='';cp.revision=1
